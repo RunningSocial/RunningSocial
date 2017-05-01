@@ -25,7 +25,7 @@ class AddRunViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        addRunButton.isEnabled = false
+        addRunButton.isEnabled = true
         
         // set initial location to Denver
         
@@ -41,10 +41,13 @@ class AddRunViewController: UIViewController {
 
     @IBAction func addRunTapped(_ sender: Any) {
         
-//        FIRDatabase.database().reference().child("runs").child(user!.uid).child("email").setValue(user!.email!)
+        let newRun = FIRDatabase.database().reference().child("runs").childByAutoId()
+        
+        newRun.child("title").setValue(titleTextField.text)
+        newRun.child("details").setValue(detailsTextField.text)
+        newRun.child("distance").setValue(distanceTextField.text)
+        newRun.child("date").setValue(datePicker.date)
 
-        
-        
         
     }
 }

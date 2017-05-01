@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */; };
-		F6F72EC71EB7958F002EBA70 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC61EB7958F002EBA70 /* ViewController.swift */; };
+		F6F72EC71EB7958F002EBA70 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */; };
 		F6F72ECA1EB7958F002EBA70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F72EC81EB7958F002EBA70 /* Main.storyboard */; };
 		F6F72ECD1EB7958F002EBA70 /* RunningSocial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6F72ECB1EB7958F002EBA70 /* RunningSocial.xcdatamodeld */; };
 		F6F72ECF1EB7958F002EBA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F72ECE1EB7958F002EBA70 /* Assets.xcassets */; };
@@ -18,7 +18,7 @@
 /* Begin PBXFileReference section */
 		F6F72EC11EB7958F002EBA70 /* RunningSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F6F72EC61EB7958F002EBA70 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		F6F72EC91EB7958F002EBA70 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F6F72ECC1EB7958F002EBA70 /* RunningSocial.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RunningSocial.xcdatamodel; sourceTree = "<group>"; };
 		F6F72ECE1EB7958F002EBA70 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -37,6 +37,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0FA4373E1EB79D8700C48AA7 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */,
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
 		F6F72EB81EB7958F002EBA70 = {
 			isa = PBXGroup;
 			children = (
@@ -56,8 +64,8 @@
 		F6F72EC31EB7958F002EBA70 /* RunningSocial */ = {
 			isa = PBXGroup;
 			children = (
+				0FA4373E1EB79D8700C48AA7 /* ViewControllers */,
 				F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */,
-				F6F72EC61EB7958F002EBA70 /* ViewController.swift */,
 				F6F72EC81EB7958F002EBA70 /* Main.storyboard */,
 				F6F72ECE1EB7958F002EBA70 /* Assets.xcassets */,
 				F6F72ED01EB7958F002EBA70 /* LaunchScreen.storyboard */,
@@ -140,7 +148,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F6F72EC71EB7958F002EBA70 /* ViewController.swift in Sources */,
+				F6F72EC71EB7958F002EBA70 /* SignInViewController.swift in Sources */,
 				F6F72ECD1EB7958F002EBA70 /* RunningSocial.xcdatamodeld in Sources */,
 				F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */,
 			);
@@ -308,6 +316,7 @@
 				F6F72ED81EB7958F002EBA70 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

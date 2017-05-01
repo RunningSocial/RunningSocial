@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		201F9D5552D4912C204A33DE /* Pods_RunningSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */; };
+		F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */; };
+		F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */; };
+		F6A4F7261EB7D22F0081EFC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */; };
+		F6A4F7291EB7DE470081EFC7 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7281EB7DE470081EFC7 /* user.swift */; };
+		F6A4F72B1EB7DE550081EFC7 /* run.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F72A1EB7DE550081EFC7 /* run.swift */; };
 		F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */; };
 		F6F72EC71EB7958F002EBA70 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */; };
 		F6F72ECA1EB7958F002EBA70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F72EC81EB7958F002EBA70 /* Main.storyboard */; };
@@ -21,6 +26,11 @@
 		09F672D170F23C2112E2127D /* Pods-RunningSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunningSocial/Pods-RunningSocial.debug.xcconfig"; sourceTree = "<group>"; };
 		7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunningSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874F5E69C4BF0F288FB53E80 /* Pods-RunningSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunningSocial/Pods-RunningSocial.release.xcconfig"; sourceTree = "<group>"; };
+		F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunListViewController.swift; sourceTree = "<group>"; };
+		F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
+		F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		F6A4F7281EB7DE470081EFC7 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
+		F6A4F72A1EB7DE550081EFC7 /* run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = run.swift; sourceTree = "<group>"; };
 		F6F72EC11EB7958F002EBA70 /* RunningSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -37,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F6A4F7261EB7D22F0081EFC7 /* MapKit.framework in Frameworks */,
 				201F9D5552D4912C204A33DE /* Pods_RunningSocial.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -47,6 +58,8 @@
 		0FA4373E1EB79D8700C48AA7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */,
+				F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */,
 				F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */,
 			);
 			name = ViewControllers;
@@ -55,6 +68,7 @@
 		D0A149BC4270B34FDF4A4989 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */,
 				7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */,
 			);
 			name = Frameworks;
@@ -67,6 +81,15 @@
 				874F5E69C4BF0F288FB53E80 /* Pods-RunningSocial.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F6A4F7271EB7DE270081EFC7 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				F6A4F7281EB7DE470081EFC7 /* user.swift */,
+				F6A4F72A1EB7DE550081EFC7 /* run.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 		F6F72EB81EB7958F002EBA70 = {
@@ -90,6 +113,7 @@
 		F6F72EC31EB7958F002EBA70 /* RunningSocial */ = {
 			isa = PBXGroup;
 			children = (
+				F6A4F7271EB7DE270081EFC7 /* Models */,
 				0FA4373E1EB79D8700C48AA7 /* ViewControllers */,
 				F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */,
 				F6F72EC81EB7958F002EBA70 /* Main.storyboard */,
@@ -139,6 +163,11 @@
 						CreatedOnToolsVersion = 8.3.2;
 						DevelopmentTeam = GW32FNEFP3;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Maps.iOS = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -229,7 +258,11 @@
 			files = (
 				F6F72EC71EB7958F002EBA70 /* SignInViewController.swift in Sources */,
 				F6F72ECD1EB7958F002EBA70 /* RunningSocial.xcdatamodeld in Sources */,
+				F6A4F72B1EB7DE550081EFC7 /* run.swift in Sources */,
+				F6A4F7291EB7DE470081EFC7 /* user.swift in Sources */,
+				F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */,
 				F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */,
+				F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

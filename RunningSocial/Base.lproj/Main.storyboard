@@ -93,6 +93,7 @@
                         <outlet property="appLogo" destination="brL-BT-Mav" id="07H-FL-5RB"/>
                         <outlet property="passwordTextField" destination="bRy-u0-XL2" id="nSI-FJ-yjz"/>
                         <outlet property="roundedCornerButton" destination="1hA-a6-Ae0" id="lKm-L8-F5m"/>
+                        <outlet property="titleLabel" destination="NHK-w2-4IV" id="ulM-Ku-SWB"/>
                         <outlet property="usernameTextField" destination="h5z-NP-5Cf" id="6Ir-fC-27E"/>
                         <segue destination="c0B-mE-URH" kind="presentation" identifier="signinsegue" id="N4N-NG-YbI"/>
                     </connections>

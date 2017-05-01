@@ -16,6 +16,7 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var appLogo: UIImageView!
     
+    @IBOutlet weak var titleLabel: UILabel!
     
     
     

@@ -17,10 +17,14 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var appLogo: UIImageView!
     
     
+    
+    
+    @IBOutlet weak var roundedCornerButton: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        roundedCornerButton.layer.cornerRadius = 4
     }
+    
     
     
     @IBAction func loginTapped(_ sender: Any) {

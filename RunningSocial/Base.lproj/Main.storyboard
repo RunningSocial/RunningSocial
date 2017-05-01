@@ -45,7 +45,7 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <state key="normal" title="Log In"/>
                                 <connections>
-                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="WZ3-0u-Uox"/>
+                                    <action selector="loginTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="2DW-SO-S8f"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -68,10 +68,55 @@
                     <connections>
                         <outlet property="passwordTextField" destination="bRy-u0-XL2" id="nSI-FJ-yjz"/>
                         <outlet property="usernameTextField" destination="h5z-NP-5Cf" id="6Ir-fC-27E"/>
+                        <segue destination="c0B-mE-URH" kind="presentation" identifier="signinsegue" id="N4N-NG-YbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="gqh-K1-JlZ">
+            <objects>
+                <viewController id="rz5-fo-jb1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="SaA-dh-0V4"/>
+                        <viewControllerLayoutGuide type="bottom" id="6lY-52-wGZ"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="yuJ-Ts-vjn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k93-0A-1dd">
+                                <rect key="frame" x="142" y="287" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="qcA-cd-6Rb"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A94-gS-Tq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2039" y="38"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="en6-68-eOr">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="c0B-mE-URH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="qgd-Lt-dW6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="rz5-fo-jb1" kind="relationship" relationship="rootViewController" id="0Y0-xj-3pD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oGu-gL-HcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1022" y="37"/>
         </scene>
     </scenes>
 </document>

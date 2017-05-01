@@ -1,0 +1,6 @@
+framework module Pods_RunningSocial {
+  umbrella header "Pods-RunningSocial-umbrella.h"
+
+  export *
+  module * { export * }
+}

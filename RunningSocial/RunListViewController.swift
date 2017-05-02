@@ -20,18 +20,24 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         
         tableView.dataSource = self
         tableView.delegate = self
+        self.tableView.reloadData()
         
         print("BEFORE####")
         FIRDatabase.database().reference().child("runs").observe(FIRDataEventType.childAdded, with: {(snapshot) in
             print("Snapshot")
             print(snapshot)
-            
             let run = Run()
             run.owner = (snapshot.value as! NSDictionary)["owner"] as! String
             run.title = (snapshot.value as! NSDictionary)["title"] as! String
+            run.details = (snapshot.value as! NSDictionary)["details"] as! String
+            run.distance = (snapshot.value as! NSDictionary)["distance"] as! String
+            run.difficulty = (snapshot.value as! NSDictionary)["difficulty"] as! String
 
-            self.runs.append(run)
+            if run.title != "" {
+                self.runs.append(run)
+            }
             self.tableView.reloadData()
+            
         })
     }
     
@@ -45,6 +51,23 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         cell.textLabel?.text = run.title
         return cell
     }
+    
+//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+//        print("COUT")
+//        print(runs.count)
+//        let cell = UITableViewCell()
+//        
+//        if runs.count == 0 {
+//            
+//            cell.textLabel?.text = "No runs available yet 🏃🏽🏃🏼‍♀️"
+//            
+//        } else {
+//            let run = runs[indexPath.row]
+//            cell.textLabel?.text = run.title
+//        }
+//        
+//        return cell
+//    }
     
     
     @IBAction func logoutTapped(_ sender: Any) {

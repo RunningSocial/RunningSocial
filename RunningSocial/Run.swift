@@ -11,4 +11,7 @@ import Foundation
 class Run {
     var owner = ""
     var title = ""
+    var details = ""
+    var distance = ""
+    var difficulty = ""
 }

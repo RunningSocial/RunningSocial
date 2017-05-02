@@ -32,7 +32,7 @@ class SignInViewController: UIViewController {
         FIRAuth.auth()?.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
             print("We tried to sign in")
             if error != nil {
-                print("We have error: \(error)")
+                print("We have error: \(String(describing: error))")
                 FIRAuth.auth()?.createUser(withEmail: self.usernameTextField.text!, password: self.passwordTextField.text!, completion: { (user, error) in
                     print("We tried to create a user")
                     if error != nil {

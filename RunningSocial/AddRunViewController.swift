@@ -23,20 +23,16 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var difficultyTextField: UITextField!
     @IBOutlet weak var addRunButton: UIButton!
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        addRunButton.isEnabled = false
+
         picker.delegate = self
         picker.dataSource = self
-        
         difficultyTextField.inputView = picker
         
-        addRunButton.isEnabled = true
-        
         // set initial location to Denver
-        
         let initialLocation = CLLocation(latitude: 39.7392, longitude: -104.9903)
         let regionRadius: CLLocationDistance = 50000
         func centerMapOnLocation(location: CLLocation) {
@@ -44,7 +40,6 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             mapView.setRegion(coordinateRegion, animated: true)
         }
         centerMapOnLocation(location: initialLocation)
-
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -64,15 +59,22 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         self.view.endEditing(false)
     }
     
-    
+    @IBAction func titleTextChanged(_ sender: Any) {
+        addRunButton.isEnabled = true
+    }
 
     @IBAction func addRunTapped(_ sender: Any) {
+        print("DATEPICKER")
+        print(datePicker.date)
+        print("#########")
+        print("RUNDATE")
+        print("########")
+
+        let newRun = ["owner":FIRAuth.auth()?.currentUser!.email!,"title":titleTextField.text,"details":detailsTextField.text,"distance":distanceTextField.text,"difficulty":difficultyTextField.text]
         
-        let newRun = FIRDatabase.database().reference().child("runs").childByAutoId()
-        
-        newRun.child("owner").setValue(FIRAuth.auth()?.currentUser?.email!)
-        newRun.child("title").setValue(titleTextField.text!)
+        FIRDatabase.database().reference().child("runs").childByAutoId().setValue(newRun)
         
         navigationController!.popToRootViewController(animated: true)
+
     }
 }

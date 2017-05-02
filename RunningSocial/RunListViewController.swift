@@ -32,12 +32,13 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             run.details = (snapshot.value as! NSDictionary)["details"] as! String
             run.distance = (snapshot.value as! NSDictionary)["distance"] as! String
             run.difficulty = (snapshot.value as! NSDictionary)["difficulty"] as! String
-
+            //            run.date = (snapshot.value as! NSDictionary)["date"] as! String
+            
+            
             if run.title != "" {
                 self.runs.append(run)
             }
             self.tableView.reloadData()
-            
         })
     }
     
@@ -52,24 +53,21 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         return cell
     }
     
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        print("COUT")
-//        print(runs.count)
-//        let cell = UITableViewCell()
-//        
-//        if runs.count == 0 {
-//            
-//            cell.textLabel?.text = "No runs available yet 🏃🏽🏃🏼‍♀️"
-//            
-//        } else {
-//            let run = runs[indexPath.row]
-//            cell.textLabel?.text = run.title
-//        }
-//        
-//        return cell
-//    }
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let run = runs[indexPath.row]
+        performSegue(withIdentifier: "viewrunsegue", sender: run)
+    }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "viewrunsegue" {
+            let nextVC = segue.destination as! ViewRunViewController
+            nextVC.run = sender as! Run
+        }
+        
+        // App still crashes when user clicks on the "no runs" alert
+    }
     
+    // LOGOUT FUNCTION
     @IBAction func logoutTapped(_ sender: Any) {
         print("Sign out initiated")
         dismiss(animated: true, completion: nil)

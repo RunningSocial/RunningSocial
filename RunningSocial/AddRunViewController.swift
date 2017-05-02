@@ -31,6 +31,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         picker.delegate = self
         picker.dataSource = self
         difficultyTextField.inputView = picker
+        datePicker.minuteInterval = 15
         
         // set initial location to Denver
         let initialLocation = CLLocation(latitude: 39.7392, longitude: -104.9903)
@@ -69,8 +70,22 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         print("#########")
         print("RUNDATE")
         print("########")
+        
+        //NSDate to String
+        let date = datePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM-dd-yyyy hh:mm"
+        let stringDate = dateFormatter.string(from: date as Date)
+        print("#######STRINGDATE#######")
+        print(stringDate)
+        
+        
+        
+        
+        
+        
 
-        let newRun = ["owner":FIRAuth.auth()?.currentUser!.email!,"title":titleTextField.text,"details":detailsTextField.text,"distance":distanceTextField.text,"difficulty":difficultyTextField.text]
+        let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": titleTextField.text, "details": detailsTextField.text, "distance": distanceTextField.text, "difficulty": difficultyTextField.text]
         
         FIRDatabase.database().reference().child("runs").childByAutoId().setValue(newRun)
         

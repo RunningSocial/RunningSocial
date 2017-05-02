@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		201F9D5552D4912C204A33DE /* Pods_RunningSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */; };
+		2B83FEE81EB911CE002C255E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B83FEE71EB911CE002C255E /* CoreLocation.framework */; };
 		F60DFF4F1EB9249F006206B4 /* ViewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60DFF4E1EB9249F006206B4 /* ViewRunViewController.swift */; };
 		F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */; };
 		F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		09F672D170F23C2112E2127D /* Pods-RunningSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunningSocial/Pods-RunningSocial.debug.xcconfig"; sourceTree = "<group>"; };
+		2B83FEE71EB911CE002C255E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunningSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874F5E69C4BF0F288FB53E80 /* Pods-RunningSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunningSocial/Pods-RunningSocial.release.xcconfig"; sourceTree = "<group>"; };
 		F60DFF4E1EB9249F006206B4 /* ViewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRunViewController.swift; sourceTree = "<group>"; };
@@ -49,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2B83FEE81EB911CE002C255E /* CoreLocation.framework in Frameworks */,
 				F6A4F7261EB7D22F0081EFC7 /* MapKit.framework in Frameworks */,
 				201F9D5552D4912C204A33DE /* Pods_RunningSocial.framework in Frameworks */,
 			);
@@ -71,6 +74,7 @@
 		D0A149BC4270B34FDF4A4989 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2B83FEE71EB911CE002C255E /* CoreLocation.framework */,
 				F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */,
 				7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */,
 			);
@@ -164,7 +168,6 @@
 				TargetAttributes = {
 					F6F72EC01EB7958F002EBA70 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = GW32FNEFP3;
 						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.Maps.iOS = {
@@ -390,7 +393,7 @@
 			baseConfigurationReference = 09F672D170F23C2112E2127D /* Pods-RunningSocial.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GW32FNEFP3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RunningSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lanefaison.RunningSocial;
@@ -405,7 +408,7 @@
 			baseConfigurationReference = 874F5E69C4BF0F288FB53E80 /* Pods-RunningSocial.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = GW32FNEFP3;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = RunningSocial/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.lanefaison.RunningSocial;

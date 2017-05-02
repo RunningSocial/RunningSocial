@@ -11,8 +11,8 @@
 		F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */; };
 		F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */; };
 		F6A4F7261EB7D22F0081EFC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */; };
-		F6A4F7291EB7DE470081EFC7 /* user.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7281EB7DE470081EFC7 /* user.swift */; };
-		F6A4F72B1EB7DE550081EFC7 /* run.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F72A1EB7DE550081EFC7 /* run.swift */; };
+		F6A4F7291EB7DE470081EFC7 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7281EB7DE470081EFC7 /* User.swift */; };
+		F6A4F72B1EB7DE550081EFC7 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F72A1EB7DE550081EFC7 /* Run.swift */; };
 		F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */; };
 		F6F72EC71EB7958F002EBA70 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */; };
 		F6F72ECA1EB7958F002EBA70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F72EC81EB7958F002EBA70 /* Main.storyboard */; };
@@ -29,8 +29,8 @@
 		F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunListViewController.swift; sourceTree = "<group>"; };
 		F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
 		F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
-		F6A4F7281EB7DE470081EFC7 /* user.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = user.swift; sourceTree = "<group>"; };
-		F6A4F72A1EB7DE550081EFC7 /* run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = run.swift; sourceTree = "<group>"; };
+		F6A4F7281EB7DE470081EFC7 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		F6A4F72A1EB7DE550081EFC7 /* Run.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Run.swift; sourceTree = "<group>"; };
 		F6F72EC11EB7958F002EBA70 /* RunningSocial.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RunningSocial.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
@@ -86,8 +86,8 @@
 		F6A4F7271EB7DE270081EFC7 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				F6A4F7281EB7DE470081EFC7 /* user.swift */,
-				F6A4F72A1EB7DE550081EFC7 /* run.swift */,
+				F6A4F7281EB7DE470081EFC7 /* User.swift */,
+				F6A4F72A1EB7DE550081EFC7 /* Run.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -258,8 +258,8 @@
 			files = (
 				F6F72EC71EB7958F002EBA70 /* SignInViewController.swift in Sources */,
 				F6F72ECD1EB7958F002EBA70 /* RunningSocial.xcdatamodeld in Sources */,
-				F6A4F72B1EB7DE550081EFC7 /* run.swift in Sources */,
-				F6A4F7291EB7DE470081EFC7 /* user.swift in Sources */,
+				F6A4F72B1EB7DE550081EFC7 /* Run.swift in Sources */,
+				F6A4F7291EB7DE470081EFC7 /* User.swift in Sources */,
 				F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */,
 				F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */,
 				F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */,

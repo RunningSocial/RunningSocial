@@ -9,10 +9,6 @@
 import Foundation
 
 class Run {
+    var owner = ""
     var title = ""
-    var date = ""
-    var descrip = ""
-    var racePace = ""
-    var uuid = ""
-    
 }

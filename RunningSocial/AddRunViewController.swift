@@ -44,7 +44,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         // UI LongPress Recognizer to drop a pin
         let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(AddRunViewController.longpress(gestureRecognizer:)))
-        uilpgr.minimumPressDuration = 1
+        uilpgr.minimumPressDuration = 1.5
         mapView.addGestureRecognizer(uilpgr)
         
     }
@@ -59,7 +59,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         mapView.addAnnotation(annotation)
         // currently allows more than one long press
         // and generates more than one lat and long
-        print(annotation.coordinate)
+        print(annotation.coordinate.latitude, annotation.coordinate.longitude)
         
     }
     

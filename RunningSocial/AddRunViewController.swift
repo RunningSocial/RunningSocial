@@ -9,12 +9,13 @@
 import UIKit
 import MapKit
 import Firebase
+import CoreLocation
 
-class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
+class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, MKMapViewDelegate {
     
     var pace = ["Slow", "Intermediate", "Advanced"]
     var picker = UIPickerView()
-
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var titleTextField: UITextField!
@@ -27,7 +28,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         super.viewDidLoad()
         
         addRunButton.isEnabled = false
-
+        
         picker.delegate = self
         picker.dataSource = self
         difficultyTextField.inputView = picker
@@ -40,6 +41,26 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             mapView.setRegion(coordinateRegion, animated: true)
         }
         centerMapOnLocation(location: initialLocation)
+        
+        // UI LongPress Recognizer to drop a pin
+        let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(AddRunViewController.longpress(gestureRecognizer:)))
+        uilpgr.minimumPressDuration = 1
+        mapView.addGestureRecognizer(uilpgr)
+        
+    }
+    // drops pin after one second long press
+    func longpress(gestureRecognizer: UIGestureRecognizer) {
+        let touchPoint = gestureRecognizer.location(in: self.mapView)
+        let newCoordinate = mapView.convert(touchPoint, toCoordinateFrom: self.mapView)
+        let annotation  = MKPointAnnotation()
+        annotation.coordinate = newCoordinate
+        annotation.title = "Starting Point"
+        //annotation.subtitle = "New starting point"
+        mapView.addAnnotation(annotation)
+        // currently allows more than one long press
+        // and generates more than one lat and long
+        print(annotation.coordinate)
+        
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -62,19 +83,19 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBAction func titleTextChanged(_ sender: Any) {
         addRunButton.isEnabled = true
     }
-
+    
     @IBAction func addRunTapped(_ sender: Any) {
         print("DATEPICKER")
         print(datePicker.date)
         print("#########")
         print("RUNDATE")
         print("########")
-
+        
         let newRun = ["owner":FIRAuth.auth()?.currentUser!.email!,"title":titleTextField.text,"details":detailsTextField.text,"distance":distanceTextField.text,"difficulty":difficultyTextField.text]
         
         FIRDatabase.database().reference().child("runs").childByAutoId().setValue(newRun)
         
         navigationController!.popToRootViewController(animated: true)
-
+        
     }
 }

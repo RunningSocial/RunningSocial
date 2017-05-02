@@ -14,4 +14,5 @@ class Run {
     var details = ""
     var distance = ""
     var difficulty = ""
+//    var date = ""
 }

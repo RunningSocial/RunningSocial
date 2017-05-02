@@ -102,7 +102,7 @@
             </objects>
             <point key="canvasLocation" x="199" y="36"/>
         </scene>
-        <!--Run List View Controller-->
+        <!--Upcoming Runs-->
         <scene sceneID="gqh-K1-JlZ">
             <objects>
                 <viewController automaticallyAdjustsScrollViewInsets="NO" id="rz5-fo-jb1" customClass="RunListViewController" customModule="RunningSocial" customModuleProvider="target" sceneMemberID="viewController">
@@ -114,20 +114,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome, username!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qg1-LM-oKu">
-                                <rect key="frame" x="107" y="74" width="161" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="BhJ-EC-VSH">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="qg1-LM-oKu" firstAttribute="centerX" secondItem="yuJ-Ts-vjn" secondAttribute="centerX" id="Ru1-AV-dgk"/>
-                            <constraint firstItem="qg1-LM-oKu" firstAttribute="top" secondItem="SaA-dh-0V4" secondAttribute="bottom" constant="10" id="nTc-kk-9hJ"/>
+                            <constraint firstItem="BhJ-EC-VSH" firstAttribute="top" secondItem="SaA-dh-0V4" secondAttribute="bottom" id="SHI-dT-V4I"/>
+                            <constraint firstAttribute="trailing" secondItem="BhJ-EC-VSH" secondAttribute="trailing" id="gSZ-pf-gRn"/>
+                            <constraint firstItem="6lY-52-wGZ" firstAttribute="top" secondItem="BhJ-EC-VSH" secondAttribute="bottom" id="jDw-xY-3Rj"/>
+                            <constraint firstItem="BhJ-EC-VSH" firstAttribute="leading" secondItem="yuJ-Ts-vjn" secondAttribute="leading" id="m7w-RD-9EB"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="qcA-cd-6Rb">
+                    <navigationItem key="navigationItem" title="Upcoming Runs" id="qcA-cd-6Rb">
                         <barButtonItem key="leftBarButtonItem" title="Logout" id="mfe-Qq-psu">
                             <connections>
                                 <action selector="logoutTapped:" destination="rz5-fo-jb1" id="qle-Jn-L7H"/>
@@ -139,12 +139,15 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="BhJ-EC-VSH" id="KXn-0l-pGL"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="A94-gS-Tq7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1845.5999999999999" y="35.532233883058474"/>
         </scene>
-        <!--Add Run-->
+        <!--Build A Run-->
         <scene sceneID="gHa-Ft-lbc">
             <objects>
                 <viewController id="8Lo-Ey-iwF" customClass="AddRunViewController" customModule="RunningSocial" customModuleProvider="target" sceneMemberID="viewController">
@@ -195,17 +198,8 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="wXe-Pr-fL3">
-                                <rect key="frame" x="159" y="555" width="51" height="31"/>
-                            </switch>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Race Pace?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xe2-MX-jvv">
-                                <rect key="frame" x="49" y="560" width="89" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dWO-0j-OZ2">
-                                <rect key="frame" x="50" y="601" width="275" height="50"/>
+                                <rect key="frame" x="50" y="595" width="275" height="50"/>
                                 <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="bHK-P2-lhg"/>
@@ -215,45 +209,51 @@
                                     <action selector="addRunTapped:" destination="8Lo-Ey-iwF" eventType="touchUpInside" id="wuL-hu-iGL"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Difficulty" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dEq-zZ-HU7">
+                                <rect key="frame" x="50" y="555" width="275" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="xe2-MX-jvv" firstAttribute="top" secondItem="YjI-SA-CsL" secondAttribute="bottom" constant="15" id="08N-OT-3H2"/>
                             <constraint firstItem="YjI-SA-CsL" firstAttribute="centerX" secondItem="61f-aG-7Tj" secondAttribute="centerX" id="0K7-Ca-aOE"/>
                             <constraint firstItem="00Y-5p-Vxr" firstAttribute="top" secondItem="PHT-It-cSm" secondAttribute="bottom" constant="20" id="1kk-dn-fUB"/>
-                            <constraint firstItem="dWO-0j-OZ2" firstAttribute="top" secondItem="wXe-Pr-fL3" secondAttribute="bottom" constant="15" id="1sF-xC-C6e"/>
                             <constraint firstItem="7KC-4n-cpI" firstAttribute="leading" secondItem="61f-aG-7Tj" secondAttribute="leading" constant="50" id="29K-AU-xFn"/>
                             <constraint firstItem="PHT-It-cSm" firstAttribute="top" secondItem="rjm-un-qAA" secondAttribute="bottom" id="7Iz-Yh-kaX"/>
                             <constraint firstItem="uG8-4j-8R8" firstAttribute="centerX" secondItem="61f-aG-7Tj" secondAttribute="centerX" constant="-1" id="7sL-kf-I5C"/>
                             <constraint firstAttribute="trailing" secondItem="dWO-0j-OZ2" secondAttribute="trailing" constant="50" id="9cv-lG-lQ1"/>
                             <constraint firstItem="Fnh-us-BFm" firstAttribute="top" secondItem="00Y-5p-Vxr" secondAttribute="bottom" constant="10" id="E1a-2z-yil"/>
+                            <constraint firstItem="dWO-0j-OZ2" firstAttribute="top" secondItem="dEq-zZ-HU7" secondAttribute="bottom" constant="10" id="Fpa-vO-5jP"/>
                             <constraint firstItem="00Y-5p-Vxr" firstAttribute="centerX" secondItem="61f-aG-7Tj" secondAttribute="centerX" id="ISr-Kf-gR7"/>
-                            <constraint firstItem="xe2-MX-jvv" firstAttribute="leading" secondItem="61f-aG-7Tj" secondAttribute="leading" constant="49" id="JCO-zP-EaQ"/>
                             <constraint firstItem="uG8-4j-8R8" firstAttribute="leading" secondItem="61f-aG-7Tj" secondAttribute="leading" constant="49" id="KGi-nT-xio"/>
+                            <constraint firstAttribute="trailing" secondItem="dEq-zZ-HU7" secondAttribute="trailing" constant="50" id="MGE-GK-cYR"/>
                             <constraint firstItem="7KC-4n-cpI" firstAttribute="top" secondItem="uG8-4j-8R8" secondAttribute="bottom" constant="10" id="N9q-i3-es3"/>
-                            <constraint firstItem="wXe-Pr-fL3" firstAttribute="leading" secondItem="xe2-MX-jvv" secondAttribute="trailing" constant="21" id="Pc2-BK-WVx"/>
                             <constraint firstItem="YjI-SA-CsL" firstAttribute="leading" secondItem="61f-aG-7Tj" secondAttribute="leading" constant="50" id="RJ4-nR-898"/>
                             <constraint firstItem="YjI-SA-CsL" firstAttribute="top" secondItem="7KC-4n-cpI" secondAttribute="bottom" constant="10" id="XeL-Ig-VZs"/>
+                            <constraint firstItem="dEq-zZ-HU7" firstAttribute="centerX" secondItem="61f-aG-7Tj" secondAttribute="centerX" id="YCT-AK-DNw"/>
                             <constraint firstItem="dWO-0j-OZ2" firstAttribute="leading" secondItem="61f-aG-7Tj" secondAttribute="leading" constant="50" id="Zgb-s7-uHC"/>
                             <constraint firstItem="Fnh-us-BFm" firstAttribute="centerX" secondItem="61f-aG-7Tj" secondAttribute="centerX" id="bxZ-2m-JSI"/>
+                            <constraint firstItem="dEq-zZ-HU7" firstAttribute="top" secondItem="YjI-SA-CsL" secondAttribute="bottom" constant="10" id="edX-Pf-0JS"/>
                             <constraint firstAttribute="trailing" secondItem="7KC-4n-cpI" secondAttribute="trailing" constant="50" id="gGW-Yw-EMT"/>
+                            <constraint firstItem="dEq-zZ-HU7" firstAttribute="leading" secondItem="61f-aG-7Tj" secondAttribute="leading" constant="50" id="kDE-TO-nEF"/>
                             <constraint firstAttribute="trailing" secondItem="uG8-4j-8R8" secondAttribute="trailing" constant="51" id="kNy-rv-6KU"/>
                             <constraint firstItem="7KC-4n-cpI" firstAttribute="centerX" secondItem="61f-aG-7Tj" secondAttribute="centerX" id="pwb-ak-hQJ"/>
                             <constraint firstItem="PHT-It-cSm" firstAttribute="leading" secondItem="61f-aG-7Tj" secondAttribute="leading" id="rFf-Sr-V2F"/>
                             <constraint firstAttribute="trailing" secondItem="PHT-It-cSm" secondAttribute="trailing" id="wsV-Ss-mBx"/>
                             <constraint firstAttribute="trailing" secondItem="YjI-SA-CsL" secondAttribute="trailing" constant="50" id="xBj-fO-6Ja"/>
                             <constraint firstItem="uG8-4j-8R8" firstAttribute="top" secondItem="Fnh-us-BFm" secondAttribute="bottom" constant="20" id="xSl-P9-9X5"/>
-                            <constraint firstItem="wXe-Pr-fL3" firstAttribute="top" secondItem="YjI-SA-CsL" secondAttribute="bottom" constant="10" id="ytD-dl-omy"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Add Run" id="lhE-jQ-E2X"/>
+                    <navigationItem key="navigationItem" title="Build A Run" id="lhE-jQ-E2X"/>
                     <connections>
                         <outlet property="addRunButton" destination="dWO-0j-OZ2" id="3es-sd-ENj"/>
                         <outlet property="datePicker" destination="Fnh-us-BFm" id="ym7-tv-h4f"/>
                         <outlet property="detailsTextField" destination="7KC-4n-cpI" id="t90-7a-Tgm"/>
+                        <outlet property="difficultyTextField" destination="dEq-zZ-HU7" id="Ewq-ZL-w56"/>
                         <outlet property="distanceTextField" destination="YjI-SA-CsL" id="y08-5r-kcH"/>
                         <outlet property="mapView" destination="PHT-It-cSm" id="aTZ-xp-gL3"/>
-                        <outlet property="racePaceSwitch" destination="wXe-Pr-fL3" id="2GG-j1-oUt"/>
                         <outlet property="titleTextField" destination="uG8-4j-8R8" id="MLo-Cu-pjl"/>
                     </connections>
                 </viewController>

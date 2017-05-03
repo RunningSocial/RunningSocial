@@ -27,12 +27,13 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             print("Snapshot")
             print(snapshot)
             let run = Run()
+            run.date = (snapshot.value as! NSDictionary)["date"] as! String
             run.owner = (snapshot.value as! NSDictionary)["owner"] as! String
             run.title = (snapshot.value as! NSDictionary)["title"] as! String
             run.details = (snapshot.value as! NSDictionary)["details"] as! String
             run.distance = (snapshot.value as! NSDictionary)["distance"] as! String
             run.difficulty = (snapshot.value as! NSDictionary)["difficulty"] as! String
-            //            run.date = (snapshot.value as! NSDictionary)["date"] as! String
+            
             
             
             if run.title != "" {

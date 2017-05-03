@@ -147,6 +147,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="BhJ-EC-VSH" id="KXn-0l-pGL"/>
+                        <outlet property="upcomingMapView" destination="Ize-dC-hxp" id="ggx-QJ-gNE"/>
                         <segue destination="lo6-ZL-hwL" kind="show" identifier="viewrunsegue" id="qE5-bW-mCf"/>
                     </connections>
                 </viewController>

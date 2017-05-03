@@ -15,12 +15,9 @@ class SignInViewController: UIViewController {
     @IBOutlet weak var usernameTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var appLogo: UIImageView!
-    
     @IBOutlet weak var titleLabel: UILabel!
-    
-    
-    
     @IBOutlet weak var roundedCornerButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         roundedCornerButton.layer.cornerRadius = 4

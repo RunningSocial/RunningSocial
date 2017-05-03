@@ -13,8 +13,12 @@ import CoreLocation
 
 class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, MKMapViewDelegate {
     
-    var pace = ["Slow", "Intermediate", "Advanced"]
-    var picker = UIPickerView()
+    var pace = [String]()
+    var length = [String]()
+    
+    var dateAndTimePicker = UIPickerView()
+    var lengthPicker = UIPickerView()
+    var difficultyPicker = UIPickerView()
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -28,13 +32,27 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        pace = ["Beginner", "Intermediate", "Advanced", "Expert"]
+        length = ["1 mile","2 miles","3 miles","5K","4 miles","5 miles","6 miles","10K","7 miles","8 miles","9 miles","10 miles","11 miles","12 miles","13 miles","Half Marathon", "14+ miles"]
+        
         addRunButton.isEnabled = false
         dateAndTime.isHidden = true
         
-        picker.delegate = self
-        picker.dataSource = self
-        difficultyTextField.inputView = picker
+        dateAndTimePicker.delegate = self
+        dateAndTimePicker.dataSource = self
         datePicker.minuteInterval = 15
+//      difficultyTextField.inputView = dateAndTimePicker
+
+        
+        lengthPicker.delegate = self
+        lengthPicker.dataSource = self
+        lengthPicker.tag = 0
+        distanceTextField.inputView = lengthPicker
+        
+        difficultyPicker.delegate = self
+        difficultyPicker.dataSource = self
+        difficultyPicker.tag = 1
+        difficultyTextField.inputView = difficultyPicker
         
         // set initial location to Denver
         let initialLocation = CLLocation(latitude: 39.7392, longitude: -104.9903)
@@ -69,18 +87,31 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-    
+
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return pace.count
+        if pickerView.tag == 1 {
+            return pace.count
+        } else {
+            return length.count
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return pace[row]
+        if pickerView.tag == 1 {
+            return pace[row]
+        } else {
+            return length[row]
+        }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        difficultyTextField.text = pace[row]
-        self.view.endEditing(false)
+        if pickerView.tag == 1 {
+            difficultyTextField.text = pace[row]
+            self.view.endEditing(false)
+        } else {
+            distanceTextField.text = length[row]
+            self.view.endEditing(false)
+        }
     }
     
     @IBAction func titleTextChanged(_ sender: Any) {

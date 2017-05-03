@@ -27,6 +27,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var detailsTextField: UITextField!
     @IBOutlet weak var distanceTextField: UITextField!
     @IBOutlet weak var difficultyTextField: UITextField!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var addRunButton: UIButton!
     
     override func viewDidLoad() {
@@ -35,14 +36,14 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         pace = ["Beginner", "Intermediate", "Advanced", "Expert"]
         length = ["1 mile","2 miles","3 miles","5K","4 miles","5 miles","6 miles","10K","7 miles","8 miles","9 miles","10 miles","11 miles","12 miles","13 miles","Half Marathon", "14+ miles"]
         
-        addRunButton.isEnabled = false
         dateAndTime.isHidden = true
+        errorLabel.isHidden = true
         
         dateAndTimePicker.delegate = self
         dateAndTimePicker.dataSource = self
         datePicker.minuteInterval = 15
-//      difficultyTextField.inputView = dateAndTimePicker
-
+        //      difficultyTextField.inputView = dateAndTimePicker
+        
         
         lengthPicker.delegate = self
         lengthPicker.dataSource = self
@@ -87,7 +88,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
-
+    
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         if pickerView.tag == 1 {
             return pace.count
@@ -114,10 +115,6 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
     
-    @IBAction func titleTextChanged(_ sender: Any) {
-        addRunButton.isEnabled = true
-    }
-    
     @IBAction func timeChanged(_ sender: Any) {
         //NSDate to String
         let date = datePicker.date
@@ -128,9 +125,15 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     @IBAction func addRunTapped(_ sender: Any) {
-        let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": titleTextField.text, "details": detailsTextField.text, "distance": distanceTextField.text, "difficulty": difficultyTextField.text, "date": dateAndTime.text]
-        
-        FIRDatabase.database().reference().child("runs").childByAutoId().setValue(newRun)
-        navigationController!.popToRootViewController(animated: true)
+        if (titleTextField.text=="") || (detailsTextField.text=="") || (distanceTextField.text=="") || (difficultyTextField.text=="") || (dateAndTime.text==""){
+            print("SOMETHING ISNT FILLED OUT")
+            errorLabel.isHidden = false
+        } else {
+            errorLabel.isHidden = true
+            let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": self.titleTextField.text, "details": self.detailsTextField.text, "distance": self.distanceTextField.text, "difficulty": self.difficultyTextField.text, "date": self.dateAndTime.text]
+            
+            FIRDatabase.database().reference().child("runs").childByAutoId().setValue(newRun)
+            self.navigationController!.popToRootViewController(animated: true)
+        }
     }
 }

@@ -16,7 +16,6 @@ class ViewRunViewController: UIViewController {
     @IBOutlet weak var runDifficulty: UILabel!
     @IBOutlet weak var runDateTime: UILabel!
     
-    
     var run = Run()
     
     override func viewDidLoad() {

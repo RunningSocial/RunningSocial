@@ -22,8 +22,10 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         self.tableView.reloadData()
         
+        let currentDate = Date()
+        
         FIRDatabase.database().reference().child("runs").observe(FIRDataEventType.childAdded, with: {(snapshot) in
-
+            
             let run = Run()
             run.date = (snapshot.value as! NSDictionary)["date"] as! String
             run.owner = (snapshot.value as! NSDictionary)["owner"] as! String
@@ -32,10 +34,24 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             run.distance = (snapshot.value as! NSDictionary)["distance"] as! String
             run.difficulty = (snapshot.value as! NSDictionary)["difficulty"] as! String
             
-            if run.title != "" {
+            // String to NSDate
+            let dateString = run.date
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
+            dateFormatter.timeZone = TimeZone(abbreviation: "MST-7:00")
+            let newDate = dateFormatter.date(from: dateString)
+            
+//            if (newDate! > currentDate) {
+                // Appends run if it is in the future so it can be viewed in the table.
+                print("Run appended")
                 self.runs.append(run)
-            }
-            self.tableView.reloadData()
+                self.tableView.reloadData()
+//            } else {
+//                print("This date has passed")
+//                print("Run date was in the past and will be deleted from the DB")
+//                // NEED function to remove data
+//                self.tableView.reloadData()
+//            }
         })
     }
     

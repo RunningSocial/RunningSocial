@@ -17,7 +17,7 @@
 		F6A4F72B1EB7DE550081EFC7 /* Run.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F72A1EB7DE550081EFC7 /* Run.swift */; };
 		F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */; };
 		F6F72EC71EB7958F002EBA70 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */; };
-		F6F72ECA1EB7958F002EBA70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F72EC81EB7958F002EBA70 /* Main.storyboard */; };
+		F6F72ECA1EB7958F002EBA70 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F72EC81EB7958F002EBA70 /* Main.storyboard */; settings = {ASSET_TAGS = (1, ); }; };
 		F6F72ECD1EB7958F002EBA70 /* RunningSocial.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F6F72ECB1EB7958F002EBA70 /* RunningSocial.xcdatamodeld */; };
 		F6F72ECF1EB7958F002EBA70 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F6F72ECE1EB7958F002EBA70 /* Assets.xcassets */; };
 		F6F72ED21EB7958F002EBA70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F6F72ED01EB7958F002EBA70 /* LaunchScreen.storyboard */; };
@@ -162,6 +162,9 @@
 		F6F72EB91EB7958F002EBA70 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				KnownAssetTags = (
+					1,
+				);
 				LastSwiftUpdateCheck = 0830;
 				LastUpgradeCheck = 0830;
 				ORGANIZATIONNAME = RunningSocial;

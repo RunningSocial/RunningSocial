@@ -14,6 +14,7 @@ class ViewRunViewController: UIViewController {
     @IBOutlet weak var runDetails: UILabel!
     @IBOutlet weak var runDistance: UILabel!
     @IBOutlet weak var runDifficulty: UILabel!
+    @IBOutlet weak var runDateTime: UILabel!
     
     
     var run = Run()
@@ -27,6 +28,7 @@ class ViewRunViewController: UIViewController {
         runDetails.text = run.details
         runDistance.text = run.distance
         runDifficulty.text = run.difficulty
+        runDateTime.text = run.date
     }
 
     

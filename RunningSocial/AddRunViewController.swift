@@ -18,6 +18,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var detailsTextField: UITextField!
     @IBOutlet weak var distanceTextField: UITextField!
@@ -28,6 +29,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         super.viewDidLoad()
         
         addRunButton.isEnabled = false
+        dateAndTime.isHidden = true
         
         picker.delegate = self
         picker.dataSource = self
@@ -85,27 +87,19 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         addRunButton.isEnabled = true
     }
     
-    @IBAction func addRunTapped(_ sender: Any) {
-        print("DATEPICKER")
-        print(datePicker.date)
-        print("#########")
-        print("RUNDATE")
-        print("########")
-        
+    @IBAction func timeChanged(_ sender: Any) {
         //NSDate to String
         let date = datePicker.date
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "MM-dd-yyyy hh:mm"
-        let stringDate = dateFormatter.string(from: date as Date)
-        print("#######STRINGDATE#######")
-        print(stringDate)
+        dateAndTime.text = dateFormatter.string(from: date as Date)
+        // This stores the date as a string in the hidden dateAndTime label
+    }
+    
+    @IBAction func addRunTapped(_ sender: Any) {
+        let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": titleTextField.text, "details": detailsTextField.text, "distance": distanceTextField.text, "difficulty": difficultyTextField.text, "date": dateAndTime.text]
         
-
-        let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": titleTextField.text, "details": detailsTextField.text, "distance": distanceTextField.text, "difficulty": difficultyTextField.text]
-
         FIRDatabase.database().reference().child("runs").childByAutoId().setValue(newRun)
-        
         navigationController!.popToRootViewController(animated: true)
-        
     }
 }

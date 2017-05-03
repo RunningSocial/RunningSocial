@@ -22,10 +22,8 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         self.tableView.reloadData()
         
-        print("BEFORE####")
         FIRDatabase.database().reference().child("runs").observe(FIRDataEventType.childAdded, with: {(snapshot) in
-            print("Snapshot")
-            print(snapshot)
+
             let run = Run()
             run.date = (snapshot.value as! NSDictionary)["date"] as! String
             run.owner = (snapshot.value as! NSDictionary)["owner"] as! String
@@ -33,8 +31,6 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             run.details = (snapshot.value as! NSDictionary)["details"] as! String
             run.distance = (snapshot.value as! NSDictionary)["distance"] as! String
             run.difficulty = (snapshot.value as! NSDictionary)["difficulty"] as! String
-            
-            
             
             if run.title != "" {
                 self.runs.append(run)

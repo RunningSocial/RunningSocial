@@ -11,8 +11,8 @@ import MapKit
 import Firebase
 import CoreLocation
 
-class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, MKMapViewDelegate {
-    
+class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, MKMapViewDelegate, UITextFieldDelegate {
+
     var pace = [String]()
     var length = [String]()
     
@@ -20,6 +20,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var lengthPicker = UIPickerView()
     var difficultyPicker = UIPickerView()
     
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateAndTime: UILabel!
@@ -113,6 +114,19 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         }
     }
     
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        scrollView.setContentOffset(CGPoint(x:0,y:250), animated: true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+                scrollView.setContentOffset(CGPoint(x:0,y:-50), animated: true)
+    }
+    
     @IBAction func timeChanged(_ sender: Any) {
         //NSDate to String
         let date = datePicker.date
@@ -133,4 +147,6 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             self.navigationController!.popToRootViewController(animated: true)
         }
     }
+    
+
 }

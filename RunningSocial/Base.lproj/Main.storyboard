@@ -26,19 +26,19 @@
                                 <rect key="frame" x="50" y="40" width="275" height="165"/>
                             </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="lane@lane.com" borderStyle="roundedRect" placeholder="Username" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="h5z-NP-5Cf">
-                                <rect key="frame" x="66" y="299" width="243" height="30"/>
+                                <rect key="frame" x="66" y="289" width="243" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" text="lane111" borderStyle="roundedRect" placeholder="Password" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRy-u0-XL2">
-                                <rect key="frame" x="66" y="359" width="243" height="30"/>
+                                <rect key="frame" x="66" y="329" width="243" height="30"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1hA-a6-Ae0">
-                                <rect key="frame" x="66.5" y="419" width="243" height="38"/>
+                                <rect key="frame" x="66.5" y="379" width="243" height="38"/>
                                 <color key="backgroundColor" red="0.99215686270000003" green="0.3294117647" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="21"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -75,12 +75,12 @@
                             <constraint firstItem="NHK-w2-4IV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q1c-83-VXx"/>
                             <constraint firstItem="h5z-NP-5Cf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QPN-5S-VHU"/>
                             <constraint firstItem="NHK-w2-4IV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S2b-gc-Me6"/>
-                            <constraint firstItem="1hA-a6-Ae0" firstAttribute="top" secondItem="bRy-u0-XL2" secondAttribute="bottom" constant="30" id="XFj-18-JNJ"/>
+                            <constraint firstItem="1hA-a6-Ae0" firstAttribute="top" secondItem="bRy-u0-XL2" secondAttribute="bottom" constant="20" id="XFj-18-JNJ"/>
                             <constraint firstItem="1hA-a6-Ae0" firstAttribute="width" secondItem="bRy-u0-XL2" secondAttribute="width" id="fJh-CI-KPS"/>
-                            <constraint firstItem="h5z-NP-5Cf" firstAttribute="top" secondItem="NHK-w2-4IV" secondAttribute="bottom" constant="30" id="fMs-tD-mgD"/>
+                            <constraint firstItem="h5z-NP-5Cf" firstAttribute="top" secondItem="NHK-w2-4IV" secondAttribute="bottom" constant="20" id="fMs-tD-mgD"/>
                             <constraint firstItem="brL-BT-Mav" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="20" id="i7O-tp-qKs"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bRy-u0-XL2" secondAttribute="trailing" constant="50" id="njO-zS-HTC"/>
-                            <constraint firstItem="bRy-u0-XL2" firstAttribute="top" secondItem="h5z-NP-5Cf" secondAttribute="bottom" constant="30" id="psk-6d-PoO"/>
+                            <constraint firstItem="bRy-u0-XL2" firstAttribute="top" secondItem="h5z-NP-5Cf" secondAttribute="bottom" constant="10" id="psk-6d-PoO"/>
                             <constraint firstItem="NHK-w2-4IV" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="195" id="tNU-16-cQW"/>
                         </constraints>
                     </view>

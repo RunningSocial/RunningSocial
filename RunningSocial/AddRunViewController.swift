@@ -41,9 +41,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         dateAndTimePicker.delegate = self
         dateAndTimePicker.dataSource = self
-        datePicker.minuteInterval = 15
-        //      difficultyTextField.inputView = dateAndTimePicker
-        
+        datePicker.minuteInterval = 15        
         
         lengthPicker.delegate = self
         lengthPicker.dataSource = self
@@ -126,7 +124,6 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     @IBAction func addRunTapped(_ sender: Any) {
         if (titleTextField.text=="") || (detailsTextField.text=="") || (distanceTextField.text=="") || (difficultyTextField.text=="") || (dateAndTime.text==""){
-            print("SOMETHING ISNT FILLED OUT")
             errorLabel.isHidden = false
         } else {
             errorLabel.isHidden = true

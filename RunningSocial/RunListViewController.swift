@@ -60,8 +60,6 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             let nextVC = segue.destination as! ViewRunViewController
             nextVC.run = sender as! Run
         }
-        
-        // App still crashes when user clicks on the "no runs" alert
     }
     
     // LOGOUT FUNCTION

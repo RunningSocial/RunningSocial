@@ -8,12 +8,18 @@
 
 import UIKit
 import Firebase
+import MapKit
+import CoreLocation
 
-class RunListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class RunListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var upcomingMapView: MKMapView!
     
     @IBOutlet weak var tableView: UITableView!
     
     var runs : [Run] = []
+    
+    var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,6 +43,13 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             }
             self.tableView.reloadData()
         })
+        
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
+        print("started updating location")
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -60,6 +73,31 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             let nextVC = segue.destination as! ViewRunViewController
             nextVC.run = sender as! Run
         }
+    }
+    
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0]
+        print(userLocation)
+        let userLat = userLocation.coordinate.latitude
+        let userLong = userLocation.coordinate.longitude
+        let latDelta: CLLocationDegrees = 0.25
+        let longDelta: CLLocationDegrees = 0.25
+        let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
+        let location = CLLocationCoordinate2DMake(userLat, userLong)
+        let region = MKCoordinateRegionMake(location, span)
+        self.upcomingMapView.setRegion(region, animated: true)
+        
+        // add a pin to the centerpoint of the map
+        let annotation = MKPointAnnotation()
+        annotation.title = "Your Location"
+        //annotation.subtitle = "Starting point"
+        annotation.coordinate = location
+        upcomingMapView.addAnnotation(annotation)
+        
+        // problems: continually updating, provides too many data points
+        
+        
+        
     }
     
     // LOGOUT FUNCTION

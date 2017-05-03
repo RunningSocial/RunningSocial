@@ -18,4 +18,3 @@ class RunLocation: NSObject, MKAnnotation{
         coordinate = CLLocationCoordinate2DMake(lat, long)
     }
 }
-

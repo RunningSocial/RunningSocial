@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We need your location to help customize your map.</string>
+	<string>RunningSocial needs your location to customize your map.</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>

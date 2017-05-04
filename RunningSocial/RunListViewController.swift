@@ -14,11 +14,9 @@ import CoreLocation
 class RunListViewController: UIViewController, UITableViewDelegate, UITableViewDataSource, MKMapViewDelegate, CLLocationManagerDelegate {
     
     @IBOutlet weak var upcomingMapView: MKMapView!
-    
     @IBOutlet weak var tableView: UITableView!
     
     var runs : [Run] = []
-    
     var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -28,7 +26,13 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         self.tableView.reloadData()
         
-        let currentDate = Date()
+        let currentDate = Date() // Date() is in UTC time zone
+        print("Old current date: \(currentDate)")
+        let currentDateFormatter = DateFormatter()
+        currentDateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
+        currentDateFormatter.timeZone = TimeZone(abbreviation: "MST")
+        let currentDateMST = currentDateFormatter.string(from: currentDate)
+        print("New current date: \(currentDateMST)") // Date is now in MST
         
         FIRDatabase.database().reference().child("runs").observe(FIRDataEventType.childAdded, with: {(snapshot) in
             
@@ -43,21 +47,30 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             // String to NSDate
             let dateString = run.date
             let dateFormatter = DateFormatter()
-            dateFormatter.dateFormat = "dd-MM-yyyy HH:mm"
-            dateFormatter.timeZone = TimeZone(abbreviation: "MST-7:00")
+            dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+            dateFormatter.timeZone = TimeZone(abbreviation: "MST")
             let newDate = dateFormatter.date(from: dateString)
             
-//            if (newDate! > currentDate) {
+
+            let newDateMST = currentDateFormatter.string(from: newDate!)
+            print("New current date: \(newDateMST)") // Date is now in MST
+            
+            print("NEW DATE: \(newDateMST)")
+            print("CURRENT DATE: \(currentDateMST)")
+            print(newDate! > currentDate)
+            
+            
+            if (newDate! > currentDate) {
                 // Appends run if it is in the future so it can be viewed in the table.
                 print("Run appended")
                 self.runs.append(run)
                 self.tableView.reloadData()
-//            } else {
-//                print("This date has passed")
-//                print("Run date was in the past and will be deleted from the DB")
-//                // NEED function to remove data
-//                self.tableView.reloadData()
-//            }
+            } else {
+                print("Run date was in the past and will be deleted from the DB")
+                // This function removes the run from the db
+                snapshot.ref.removeValue()
+                self.tableView.reloadData()
+            }
         })
         
         locationManager.delegate = self

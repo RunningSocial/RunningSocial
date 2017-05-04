@@ -137,12 +137,27 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     }
     
     @IBAction func addRunTapped(_ sender: Any) {
-        if (titleTextField.text=="") || (detailsTextField.text=="") || (distanceTextField.text=="") || (difficultyTextField.text=="") || (dateAndTime.text==""){
+        // This sequence checks that the user has filled out each field and will throw an error if otherwise. You do not need to worry about time zones here because datePicker.date and Date() are in the same time zone.
+        
+        if (dateAndTime.text=="Label") || (datePicker.date < Date()) {
+            errorLabel.text = "*Please pick a time in the future*"
+            errorLabel.isHidden = false
+        } else if (titleTextField.text=="") {
+            errorLabel.text = "*Please give your run a title*"
+            errorLabel.isHidden = false
+        } else if (detailsTextField.text=="") {
+            errorLabel.text = "*Please add some details*"
+            errorLabel.isHidden = false
+        } else if (distanceTextField.text=="") {
+            errorLabel.text = "*Please pick a distance*"
+            errorLabel.isHidden = false
+        } else if (difficultyTextField.text=="") {
+            errorLabel.text = "*Please pick a difficulty*"
             errorLabel.isHidden = false
         } else {
+            // User has completed all fields so the run is added to the db.
             errorLabel.isHidden = true
             let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": self.titleTextField.text, "details": self.detailsTextField.text, "distance": self.distanceTextField.text, "difficulty": self.difficultyTextField.text, "date": self.dateAndTime.text]
-            
             FIRDatabase.database().reference().child("runs").childByAutoId().setValue(newRun)
             self.navigationController!.popToRootViewController(animated: true)
         }

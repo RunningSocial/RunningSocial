@@ -20,8 +20,13 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     var lengthPicker = UIPickerView()
     var difficultyPicker = UIPickerView()
     
+    var stringifiedLatitude : String = ""
+    var stringifiedLongitude : String = ""
+    
     @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var mapView: MKMapView!
+    @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var dateAndTime: UILabel!
     @IBOutlet weak var titleTextField: UITextField!
@@ -42,6 +47,8 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         dateAndTime.isHidden = true
         errorLabel.isHidden = true
+        longitudeLabel.isHidden = true
+        latitudeLabel.isHidden = true
         
         dateAndTimePicker.delegate = self
         dateAndTimePicker.dataSource = self
@@ -88,13 +95,16 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         locationManager.stopUpdatingLocation()
         print("Latitude is \(annotation.coordinate.latitude) and Longitude is \(annotation.coordinate.longitude)")
         // convert double to string
-        let stringifiedLatitude:String = String(format:"%.4f", annotation.coordinate.latitude)
-        let stringifiedLongitude:String = String(format:"%.4f", annotation.coordinate.longitude)
+        stringifiedLatitude = String(format:"%.4f", annotation.coordinate.latitude)
+        stringifiedLongitude = String(format:"%.4f", annotation.coordinate.longitude)
         print("As strings, Latitude = \(stringifiedLatitude) and Longitude = \(stringifiedLongitude)")
         // convert back to a Float
         let doubleLatitude = Double(stringifiedLatitude)!
         let doubleLongitude = Double(stringifiedLongitude)!
         print("Back to a Double: Lat = \(String(describing: doubleLatitude)) and Long = \(String(describing: doubleLongitude))")
+        print("##########")
+        longitudeLabel.text = stringifiedLongitude
+        latitudeLabel.text = stringifiedLatitude
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
@@ -171,9 +181,12 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             errorLabel.text = "*Please pick a difficulty*"
             errorLabel.isHidden = false
         } else {
+            print("Checking data second time")
+            print(longitudeLabel.text)
+            print(latitudeLabel.text)
             // User has completed all fields so the run is added to the db.
             errorLabel.isHidden = true
-            let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": self.titleTextField.text, "details": self.detailsTextField.text, "distance": self.distanceTextField.text, "difficulty": self.difficultyTextField.text, "date": self.dateAndTime.text]
+            let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": self.titleTextField.text, "details": self.detailsTextField.text, "distance": self.distanceTextField.text, "difficulty": self.difficultyTextField.text, "date": self.dateAndTime.text, "latitude": latitudeLabel.text, "longitude": longitudeLabel.text]
             FIRDatabase.database().reference().child("runs").childByAutoId().setValue(newRun)
             self.navigationController!.popToRootViewController(animated: true)
         }

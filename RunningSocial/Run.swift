@@ -15,4 +15,6 @@ class Run {
     var distance = ""
     var difficulty = ""
     var date = ""
+    var latitude = ""
+    var longitude = ""
 }

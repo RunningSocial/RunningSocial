@@ -40,9 +40,6 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             run.latitude = (snapshot.value as! NSDictionary)["latitude"] as! String
             run.longitude = (snapshot.value as! NSDictionary)["longitude"] as! String
             
-            print("!!!!!!!!!!!!!!!!!!!!!")
-            print(run.longitude, run.latitude)
-            
             let thisRunDoubleLat: CLLocationDegrees = (NumberFormatter().number(from: run.latitude)?.doubleValue)!
             let thisRunDoubleLong: CLLocationDegrees = (NumberFormatter().number(from: run.longitude)?.doubleValue)!
             let thisRunLocation = CLLocationCoordinate2DMake(thisRunDoubleLat, thisRunDoubleLong)
@@ -51,19 +48,12 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             annotation.title = run.title
             self.upcomingMapView.addAnnotation(annotation)
             
-            
             // String to NSDate
             let dateString = run.date
             let dateFormatter = DateFormatter()
             dateFormatter.timeZone = TimeZone(abbreviation: "ADT")
             dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
             let newDate = dateFormatter.date(from: dateString)
-            
-            print("COMPARISON #######")
-            print("run.date: \(run.date)")
-            print("newDate: \(newDate!)")
-            print("current date in UTC: \(Date())")
-            print(newDate!.compare(Date())==ComparisonResult.orderedDescending)
             
             if (newDate!.compare(Date())==ComparisonResult.orderedDescending) {
                 // Appends run if it is in the future so it can be viewed in the table.
@@ -82,7 +72,6 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
-        print("started updating location")
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -110,7 +99,6 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let userLocation: CLLocation = locations[0]
-        print(userLocation)
         let userLat = userLocation.coordinate.latitude
         let userLong = userLocation.coordinate.longitude
         let latDelta: CLLocationDegrees = 0.25
@@ -124,15 +112,11 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         let annotation = MKPointAnnotation()
         annotation.title = "Your Location"
         annotation.coordinate = location
-//        upcomingMapView.addAnnotation(annotation)
+        // upcomingMapView.addAnnotation(annotation)
         self.upcomingMapView.showsUserLocation = true
-        
         
         // problems: continually updating, provides too many data points
         locationManager.stopUpdatingLocation()
-        print("stopped updating location")
-        print("Latitude is \(userLat) and Longitude is \(userLong)")
-
     }
     
     // LOGOUT FUNCTION

@@ -23,8 +23,6 @@ class SignInViewController: UIViewController {
         roundedCornerButton.layer.cornerRadius = 4
     }
     
-    
-    
     @IBAction func loginTapped(_ sender: Any) {
         FIRAuth.auth()?.signIn(withEmail: usernameTextField.text!, password: passwordTextField.text!, completion: { (user, error) in
             print("We tried to sign in")

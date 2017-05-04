@@ -67,13 +67,19 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         // set initial location to Denver
         // needs to use same user location as Run List
-        let initialLocation = CLLocation(latitude: 39.7392, longitude: -104.9903)
-        let regionRadius: CLLocationDistance = 20000
-        func centerMapOnLocation(location: CLLocation) {
-            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
-            mapView.setRegion(coordinateRegion, animated: true)
-        }
-        centerMapOnLocation(location: initialLocation)
+//        let initialLocation = CLLocation(latitude: 39.7392, longitude: -104.9903)
+//        let regionRadius: CLLocationDistance = 20000
+//        func centerMapOnLocation(location: CLLocation) {
+//            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
+//            mapView.setRegion(coordinateRegion, animated: true)
+//        }
+//        centerMapOnLocation(location: initialLocation)
+        
+        // start updating user location
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
         
         // UI LongPress Recognizer to drop a pin
         let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(AddRunViewController.longpress(gestureRecognizer:)))
@@ -91,7 +97,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         //annotation.subtitle = "New starting point"
         mapView.addAnnotation(annotation)
         // currently allows more than one long press
-        // and generates more than one lat and long
+        // so that user can tweak a bad press
         print(annotation.coordinate)
         locationManager.stopUpdatingLocation()
         print("Latitude is \(annotation.coordinate.latitude) and Longitude is \(annotation.coordinate.longitude)")
@@ -99,7 +105,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         stringifiedLatitude = String(format:"%.4f", annotation.coordinate.latitude)
         stringifiedLongitude = String(format:"%.4f", annotation.coordinate.longitude)
         print("As strings, Latitude = \(stringifiedLatitude) and Longitude = \(stringifiedLongitude)")
-        // convert back to a Float
+        // convert back to a Double
         let doubleLatitude = Double(stringifiedLatitude)!
         let doubleLongitude = Double(stringifiedLongitude)!
         print("Back to a Double: Lat = \(String(describing: doubleLatitude)) and Long = \(String(describing: doubleLongitude))")
@@ -107,6 +113,25 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         longitudeLabel.text = stringifiedLongitude
         latitudeLabel.text = stringifiedLatitude
     }
+    
+    // centers map on user location
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let userLocation: CLLocation = locations[0]
+        let userLat = userLocation.coordinate.latitude
+        let userLong = userLocation.coordinate.longitude
+        let latDelta: CLLocationDegrees = 0.25
+        let longDelta: CLLocationDegrees = 0.25
+        let span = MKCoordinateSpan(latitudeDelta: latDelta, longitudeDelta: longDelta)
+        let location = CLLocationCoordinate2DMake(userLat, userLong)
+        let region = MKCoordinateRegionMake(location, span)
+        self.mapView.setRegion(region, animated: true)
+        let annotation = MKPointAnnotation()
+        annotation.title = "Your Location"
+        annotation.coordinate = location
+        self.mapView.showsUserLocation = true
+        locationManager.stopUpdatingLocation()
+    }
+
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1

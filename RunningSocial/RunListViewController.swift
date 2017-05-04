@@ -112,7 +112,9 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         let annotation = MKPointAnnotation()
         annotation.title = "Your Location"
         annotation.coordinate = location
-        upcomingMapView.addAnnotation(annotation)
+//        upcomingMapView.addAnnotation(annotation)
+        self.upcomingMapView.showsUserLocation = true
+        
         
         // problems: continually updating, provides too many data points
         locationManager.stopUpdatingLocation()

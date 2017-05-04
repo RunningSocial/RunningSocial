@@ -8,6 +8,7 @@
 
 import UIKit
 import MapKit
+import CoreLocation
 
 class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
@@ -33,11 +34,18 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         latitudeLabel.text = run.latitude
         longitudeLabel.text = run.longitude
         
-        let latitudeDouble = NumberFormatter().number(from: run.latitude)?.doubleValue
-        let longitudeDouble = NumberFormatter().number(from: run.longitude)?.doubleValue
+        let latitudeDouble: CLLocationDegrees = (NumberFormatter().number(from: run.latitude)?.doubleValue)!
+        let longitudeDouble: CLLocationDegrees = (NumberFormatter().number(from: run.longitude)?.doubleValue)!
+        // start annotation code
+        let singleRunLocation = CLLocationCoordinate2D(latitude: latitudeDouble, longitude: longitudeDouble)
+        let singleRunAnnotation = MKPointAnnotation()
+        singleRunAnnotation.coordinate = singleRunLocation
+        singleRunAnnotation.title = run.title
+        self.mapView.addAnnotation(singleRunAnnotation)
+        
 
         // set location to run's location
-        let initialLocation = CLLocation(latitude: latitudeDouble!, longitude: longitudeDouble!)
+        let initialLocation = CLLocation(latitude: latitudeDouble, longitude: longitudeDouble)
         let regionRadius: CLLocationDistance = 500
         func centerMapOnLocation(location: CLLocation) {
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)

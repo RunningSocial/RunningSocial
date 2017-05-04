@@ -11,7 +11,8 @@
 		0F84EFBE1EBBD74A000E8244 /* ViewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84EFBD1EBBD74A000E8244 /* ViewRunViewController.swift */; };
 		201F9D5552D4912C204A33DE /* Pods_RunningSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */; };
 		2B83FEE81EB911CE002C255E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B83FEE71EB911CE002C255E /* CoreLocation.framework */; };
-		2BCBA5341EBA715D00D4F4D7 /* RunLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBA5331EBA715D00D4F4D7 /* RunLocation.swift */; };
+		2BCBA5361EBB9D4700D4F4D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBA5351EBB9D4700D4F4D7 /* Location.swift */; };
+		F60DFF4F1EB9249F006206B4 /* ViewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60DFF4E1EB9249F006206B4 /* ViewRunViewController.swift */; };
 		F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */; };
 		F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */; };
 		F6A4F7261EB7D22F0081EFC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */; };
@@ -31,7 +32,7 @@
 		0F21CC271EBBC62300A11965 /* curtis-mac-newton-12711 (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "curtis-mac-newton-12711 (1).jpg"; sourceTree = "<group>"; };
 		0F84EFBD1EBBD74A000E8244 /* ViewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRunViewController.swift; sourceTree = "<group>"; };
 		2B83FEE71EB911CE002C255E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
-		2BCBA5331EBA715D00D4F4D7 /* RunLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunLocation.swift; sourceTree = "<group>"; };
+		2BCBA5351EBB9D4700D4F4D7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunningSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874F5E69C4BF0F288FB53E80 /* Pods-RunningSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunningSocial/Pods-RunningSocial.release.xcconfig"; sourceTree = "<group>"; };
 		F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunListViewController.swift; sourceTree = "<group>"; };
@@ -98,8 +99,8 @@
 			isa = PBXGroup;
 			children = (
 				F6A4F7281EB7DE470081EFC7 /* User.swift */,
-				2BCBA5331EBA715D00D4F4D7 /* RunLocation.swift */,
 				F6A4F72A1EB7DE550081EFC7 /* Run.swift */,
+				2BCBA5351EBB9D4700D4F4D7 /* Location.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -275,13 +276,13 @@
 			files = (
 				F6F72EC71EB7958F002EBA70 /* SignInViewController.swift in Sources */,
 				F6F72ECD1EB7958F002EBA70 /* RunningSocial.xcdatamodeld in Sources */,
+				2BCBA5361EBB9D4700D4F4D7 /* Location.swift in Sources */,
 				F6A4F72B1EB7DE550081EFC7 /* Run.swift in Sources */,
 				F6A4F7291EB7DE470081EFC7 /* User.swift in Sources */,
 				F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */,
 				F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */,
 				F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */,
-				0F84EFBE1EBBD74A000E8244 /* ViewRunViewController.swift in Sources */,
-				2BCBA5341EBA715D00D4F4D7 /* RunLocation.swift in Sources */,
+
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

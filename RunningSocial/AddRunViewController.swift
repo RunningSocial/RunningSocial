@@ -12,7 +12,6 @@ import Firebase
 import CoreLocation
 
 class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
-
     var pace = [String]()
     var length = [String]()
     
@@ -41,6 +40,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("INITIAL DATE: \(Date())")
         addRunButton.layer.cornerRadius = 4
         
         pace = ["Beginner", "Intermediate", "Advanced", "Expert"]
@@ -158,15 +158,17 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         let date = datePicker.date
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC") // Converts local time to UTC time
-        dateFormatter.dateFormat = "MM-dd-yyyy hh:mm"
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
         dateAndTime.text = dateFormatter.string(from: date as Date)
         // This stores the date as a string in the hidden dateAndTime label
     }
     
     @IBAction func addRunTapped(_ sender: Any) {
         // This sequence checks that the user has filled out each field and will throw an error if otherwise. You do not need to worry about time zones here because datePicker.date and Date() are in the same time zone.
-        
-        if (dateAndTime.text=="Label") || (datePicker.date < Date()) {
+        if (longitudeLabel.text=="Longitude") || (latitudeLabel.text=="Latitude") {
+            errorLabel.text = "*Please choose a starting point*"
+            errorLabel.isHidden = false
+        } else if (dateAndTime.text=="Label") || (datePicker.date < Date()) {
             errorLabel.text = "*Please pick a time in the future*"
             errorLabel.isHidden = false
         } else if (titleTextField.text=="") {

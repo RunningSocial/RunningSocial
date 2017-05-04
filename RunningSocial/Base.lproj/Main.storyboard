@@ -323,6 +323,18 @@
                                             <action selector="addRunTapped:" destination="8Lo-Ey-iwF" eventType="touchUpInside" id="aOO-mj-zfd"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Longitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YQX-Ab-2Do">
+                                        <rect key="frame" x="150" y="0.0" width="76.5" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Latitude" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Qq-NS-m2Q">
+                                        <rect key="frame" x="156" y="21" width="63" height="21"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="hnx-KZ-Nac" firstAttribute="top" secondItem="1Ra-10-Gnr" secondAttribute="bottom" id="39w-29-oCY"/>
@@ -333,12 +345,15 @@
                                     <constraint firstItem="MSw-0T-ehd" firstAttribute="top" secondItem="0tp-vK-S2k" secondAttribute="bottom" constant="10" id="9Le-yg-oIn"/>
                                     <constraint firstItem="1Ra-10-Gnr" firstAttribute="top" secondItem="y2x-dn-hdv" secondAttribute="bottom" id="ABD-5A-Avj"/>
                                     <constraint firstItem="jRN-vW-xvb" firstAttribute="leading" secondItem="vQf-us-DVl" secondAttribute="leading" constant="50" id="DyY-Te-mfs"/>
+                                    <constraint firstItem="6Qq-NS-m2Q" firstAttribute="centerX" secondItem="vQf-us-DVl" secondAttribute="centerX" id="EmS-VM-TaN"/>
                                     <constraint firstItem="y2x-dn-hdv" firstAttribute="top" secondItem="vQf-us-DVl" secondAttribute="top" id="F3Z-zb-Bvj"/>
+                                    <constraint firstItem="YQX-Ab-2Do" firstAttribute="top" secondItem="vQf-us-DVl" secondAttribute="top" id="FGw-Bi-vxN"/>
                                     <constraint firstItem="ld2-Be-TLi" firstAttribute="leading" secondItem="vQf-us-DVl" secondAttribute="leading" constant="50" id="Fis-0C-Aae"/>
                                     <constraint firstAttribute="trailing" secondItem="1Ra-10-Gnr" secondAttribute="trailing" id="NTd-CN-Mh8"/>
                                     <constraint firstItem="hnx-KZ-Nac" firstAttribute="leading" secondItem="vQf-us-DVl" secondAttribute="leading" id="PUq-A4-CyB"/>
                                     <constraint firstItem="kIE-5f-ZqM" firstAttribute="top" secondItem="ld2-Be-TLi" secondAttribute="bottom" constant="10" id="QFs-bR-gkK"/>
                                     <constraint firstItem="jRN-vW-xvb" firstAttribute="top" secondItem="MSw-0T-ehd" secondAttribute="bottom" constant="10" id="TDG-AK-riF"/>
+                                    <constraint firstItem="6Qq-NS-m2Q" firstAttribute="top" secondItem="YQX-Ab-2Do" secondAttribute="bottom" id="U5y-g4-Gld"/>
                                     <constraint firstItem="1zL-GR-VP0" firstAttribute="leading" secondItem="vQf-us-DVl" secondAttribute="leading" constant="50" id="V78-Mx-qN9"/>
                                     <constraint firstItem="1Ra-10-Gnr" firstAttribute="centerX" secondItem="vQf-us-DVl" secondAttribute="centerX" id="Vct-96-Zkb"/>
                                     <constraint firstItem="jRN-vW-xvb" firstAttribute="centerX" secondItem="vQf-us-DVl" secondAttribute="centerX" id="VpA-NU-laY"/>
@@ -349,6 +364,7 @@
                                     <constraint firstItem="1Ra-10-Gnr" firstAttribute="centerX" secondItem="vQf-us-DVl" secondAttribute="centerX" id="ksl-Jw-NQR"/>
                                     <constraint firstItem="1Ra-10-Gnr" firstAttribute="leading" secondItem="vQf-us-DVl" secondAttribute="leading" id="l4b-6F-gsD"/>
                                     <constraint firstItem="ld2-Be-TLi" firstAttribute="top" secondItem="1zL-GR-VP0" secondAttribute="bottom" constant="10" id="nWd-Yd-eMK"/>
+                                    <constraint firstItem="YQX-Ab-2Do" firstAttribute="centerX" secondItem="vQf-us-DVl" secondAttribute="centerX" id="qeD-SZ-o8j"/>
                                     <constraint firstItem="0tp-vK-S2k" firstAttribute="top" secondItem="kIE-5f-ZqM" secondAttribute="bottom" constant="10" id="tID-jh-qfI"/>
                                     <constraint firstItem="MSw-0T-ehd" firstAttribute="centerX" secondItem="vQf-us-DVl" secondAttribute="centerX" id="ueV-e3-9kA"/>
                                     <constraint firstAttribute="trailing" secondItem="hnx-KZ-Nac" secondAttribute="trailing" id="v70-DW-f4s"/>
@@ -376,6 +392,8 @@
                         <outlet property="difficultyTextField" destination="0tp-vK-S2k" id="QtJ-VM-ugv"/>
                         <outlet property="distanceTextField" destination="kIE-5f-ZqM" id="cXf-Fb-WxN"/>
                         <outlet property="errorLabel" destination="MSw-0T-ehd" id="65x-LQ-M94"/>
+                        <outlet property="latitudeLabel" destination="6Qq-NS-m2Q" id="ykO-dJ-ffi"/>
+                        <outlet property="longitudeLabel" destination="YQX-Ab-2Do" id="mMm-Ei-RMl"/>
                         <outlet property="mapView" destination="y2x-dn-hdv" id="3oT-3z-0RO"/>
                         <outlet property="scrollView" destination="vQf-us-DVl" id="GVB-IP-n5t"/>
                         <outlet property="titleTextField" destination="1zL-GR-VP0" id="I81-qw-0ag"/>

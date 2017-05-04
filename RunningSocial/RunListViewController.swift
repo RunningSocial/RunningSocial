@@ -67,7 +67,7 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
                self.tableView.reloadData()
            }
         })
-        
+        // sets up user location services
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()
@@ -107,15 +107,10 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         let location = CLLocationCoordinate2DMake(userLat, userLong)
         let region = MKCoordinateRegionMake(location, span)
         self.upcomingMapView.setRegion(region, animated: true)
-        
-        // center the map and drop a pin on the user's location
         let annotation = MKPointAnnotation()
         annotation.title = "Your Location"
         annotation.coordinate = location
-        // upcomingMapView.addAnnotation(annotation)
         self.upcomingMapView.showsUserLocation = true
-        
-        // problems: continually updating, provides too many data points
         locationManager.stopUpdatingLocation()
     }
     

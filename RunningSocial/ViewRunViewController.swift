@@ -38,14 +38,12 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         
         let latitudeDouble: CLLocationDegrees = (NumberFormatter().number(from: run.latitude)?.doubleValue)!
         let longitudeDouble: CLLocationDegrees = (NumberFormatter().number(from: run.longitude)?.doubleValue)!
-        // start annotation code
         let singleRunLocation = CLLocationCoordinate2D(latitude: latitudeDouble, longitude: longitudeDouble)
         let singleRunAnnotation = MKPointAnnotation()
         singleRunAnnotation.coordinate = singleRunLocation
         singleRunAnnotation.title = run.title
         self.mapView.addAnnotation(singleRunAnnotation)
         
-
         // set location to run's location
         let initialLocation = CLLocation(latitude: latitudeDouble, longitude: longitudeDouble)
         let regionRadius: CLLocationDistance = 500

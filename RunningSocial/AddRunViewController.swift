@@ -125,15 +125,10 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         let location = CLLocationCoordinate2DMake(userLat, userLong)
         let region = MKCoordinateRegionMake(location, span)
         self.mapView.setRegion(region, animated: true)
-        
-        // center the map and drop a pin on the user's location
         let annotation = MKPointAnnotation()
         annotation.title = "Your Location"
         annotation.coordinate = location
-        // upcomingMapView.addAnnotation(annotation)
         self.mapView.showsUserLocation = true
-        
-        // problems: continually updating, provides too many data points
         locationManager.stopUpdatingLocation()
     }
 

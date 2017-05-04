@@ -11,6 +11,7 @@
 		2B83FEE81EB911CE002C255E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B83FEE71EB911CE002C255E /* CoreLocation.framework */; };
 		2BCBA5361EBB9D4700D4F4D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBA5351EBB9D4700D4F4D7 /* Location.swift */; };
 		F60DFF4F1EB9249F006206B4 /* ViewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F60DFF4E1EB9249F006206B4 /* ViewRunViewController.swift */; };
+		F63B17231EBBF1B000BD2CAD /* curtis-mac-newton-12711.jpg in Resources */ = {isa = PBXBuildFile; fileRef = F63B17221EBBF1B000BD2CAD /* curtis-mac-newton-12711.jpg */; };
 		F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */; };
 		F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */; };
 		F6A4F7261EB7D22F0081EFC7 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */; };
@@ -32,6 +33,7 @@
 		7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunningSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874F5E69C4BF0F288FB53E80 /* Pods-RunningSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunningSocial/Pods-RunningSocial.release.xcconfig"; sourceTree = "<group>"; };
 		F60DFF4E1EB9249F006206B4 /* ViewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRunViewController.swift; sourceTree = "<group>"; };
+		F63B17221EBBF1B000BD2CAD /* curtis-mac-newton-12711.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "curtis-mac-newton-12711.jpg"; sourceTree = "<group>"; };
 		F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunListViewController.swift; sourceTree = "<group>"; };
 		F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
 		F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -129,6 +131,7 @@
 				F6F72EC81EB7958F002EBA70 /* Main.storyboard */,
 				F6F72ECE1EB7958F002EBA70 /* Assets.xcassets */,
 				F6F72ED01EB7958F002EBA70 /* LaunchScreen.storyboard */,
+				F63B17221EBBF1B000BD2CAD /* curtis-mac-newton-12711.jpg */,
 				F6F72ED31EB7958F002EBA70 /* Info.plist */,
 				F6F72ECB1EB7958F002EBA70 /* RunningSocial.xcdatamodeld */,
 				F6F72ED91EB7A202002EBA70 /* GoogleService-Info.plist */,
@@ -207,6 +210,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F63B17231EBBF1B000BD2CAD /* curtis-mac-newton-12711.jpg in Resources */,
 				F6F72ED21EB7958F002EBA70 /* LaunchScreen.storyboard in Resources */,
 				F6F72ECF1EB7958F002EBA70 /* Assets.xcassets in Resources */,
 				F6F72ECA1EB7958F002EBA70 /* Main.storyboard in Resources */,

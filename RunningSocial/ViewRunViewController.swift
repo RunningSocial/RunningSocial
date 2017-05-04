@@ -11,7 +11,7 @@ import MapKit
 import CoreLocation
 
 class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
-
+    
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var runTitle: UILabel!
     @IBOutlet weak var runDetails: UILabel!
@@ -27,12 +27,11 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         super.viewDidLoad()
         latitudeLabel.isHidden = true
         longitudeLabel.isHidden = true
-        
         runTitle.text = run.title
-        runDetails.text = run.details
-        runDistance.text = run.distance
-        runDifficulty.text = run.difficulty
-        runDateTime.text = run.date
+        runDetails.text = "Details: \(run.details)"
+        runDistance.text = "Estimated distance: \(run.distance)"
+        runDifficulty.text = "Difficulty: \(run.difficulty)"
+//        runDateTime.text = "Date & Time: \(run.date)"
         latitudeLabel.text = run.latitude
         longitudeLabel.text = run.longitude
         
@@ -45,7 +44,7 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         singleRunAnnotation.title = run.title
         self.mapView.addAnnotation(singleRunAnnotation)
         
-
+        
         // set location to run's location
         let initialLocation = CLLocation(latitude: latitudeDouble, longitude: longitudeDouble)
         let regionRadius: CLLocationDistance = 500
@@ -54,5 +53,23 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
             mapView.setRegion(coordinateRegion, animated: true)
         }
         centerMapOnLocation(location: initialLocation)
+        
+        // Convert UTC time to current timezone
+        print(run.date)
+        let dateString = run.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC+6:00")
+        dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
+        let newDate = dateFormatter.date(from: dateString)
+        print(newDate!)
+        // Convert current time to a String
+
+        let dateFormatter2 = DateFormatter()
+        dateFormatter2.timeZone = TimeZone(abbreviation: "UTC")
+//        dateFormatter2.dateFormat = "MM-dd-yyyy h:mm a" // works!
+        dateFormatter2.dateFormat = "E MMM d, h:mm a" // works!
+        let dateAsString = dateFormatter2.string(from: newDate!)
+        print("dateAsString: \(dateAsString)")
+        runDateTime.text = dateAsString
     }
 }

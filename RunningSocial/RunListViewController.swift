@@ -51,10 +51,10 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             // String to NSDate
             let dateString = run.date
             let dateFormatter = DateFormatter()
-            dateFormatter.timeZone = TimeZone(abbreviation: "ADT")
+            dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
             dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
             let newDate = dateFormatter.date(from: dateString)
-            
+
             if (newDate!.compare(Date())==ComparisonResult.orderedDescending) {
                 // Appends run if it is in the future so it can be viewed in the table.
                 print("Run appended")

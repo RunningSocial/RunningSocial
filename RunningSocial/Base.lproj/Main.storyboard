@@ -67,6 +67,12 @@
                                 <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 <size key="shadowOffset" width="1" height="1"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Copyright © 2017 RunningSocial. All rights reserved." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lGo-wA-rXp">
+                                <rect key="frame" x="66" y="638.5" width="243" height="8.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="7"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
@@ -76,12 +82,15 @@
                             <constraint firstItem="bRy-u0-XL2" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="BxF-Xr-gjf"/>
                             <constraint firstItem="h5z-NP-5Cf" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="50" id="P6Q-ue-tIN"/>
                             <constraint firstItem="NHK-w2-4IV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Q1c-83-VXx"/>
+                            <constraint firstItem="lGo-wA-rXp" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QID-k5-2Gq"/>
                             <constraint firstItem="h5z-NP-5Cf" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="QPN-5S-VHU"/>
                             <constraint firstItem="brL-BT-Mav" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Qf9-UG-uu1"/>
                             <constraint firstItem="NHK-w2-4IV" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="S2b-gc-Me6"/>
                             <constraint firstItem="1hA-a6-Ae0" firstAttribute="top" secondItem="bRy-u0-XL2" secondAttribute="bottom" constant="20" id="XFj-18-JNJ"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="lGo-wA-rXp" secondAttribute="bottom" constant="20" id="XzK-q8-wbM"/>
                             <constraint firstItem="1hA-a6-Ae0" firstAttribute="width" secondItem="bRy-u0-XL2" secondAttribute="width" id="fJh-CI-KPS"/>
                             <constraint firstItem="h5z-NP-5Cf" firstAttribute="top" secondItem="NHK-w2-4IV" secondAttribute="bottom" constant="20" id="fMs-tD-mgD"/>
+                            <constraint firstItem="lGo-wA-rXp" firstAttribute="width" secondItem="bRy-u0-XL2" secondAttribute="width" id="fUV-3B-dSz"/>
                             <constraint firstItem="NHK-w2-4IV" firstAttribute="top" secondItem="brL-BT-Mav" secondAttribute="bottom" id="hrg-b9-Pif"/>
                             <constraint firstAttribute="trailingMargin" secondItem="bRy-u0-XL2" secondAttribute="trailing" constant="50" id="njO-zS-HTC"/>
                             <constraint firstItem="bRy-u0-XL2" firstAttribute="top" secondItem="h5z-NP-5Cf" secondAttribute="bottom" constant="10" id="psk-6d-PoO"/>

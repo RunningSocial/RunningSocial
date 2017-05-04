@@ -26,14 +26,6 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         tableView.delegate = self
         self.tableView.reloadData()
         
-        let currentDate = Date() // Date() is in UTC time zone
-        print("Old current date: \(currentDate)")
-        let currentDateFormatter = DateFormatter()
-        currentDateFormatter.dateFormat = "yyyy-MM-dd HH:mm"
-        currentDateFormatter.timeZone = TimeZone(abbreviation: "MST")
-        let currentDateMST = currentDateFormatter.string(from: currentDate)
-        print("New current date: \(currentDateMST)") // Date is now in MST
-        
         FIRDatabase.database().reference().child("runs").observe(FIRDataEventType.childAdded, with: {(snapshot) in
             
             let run = Run()
@@ -48,20 +40,17 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             // String to NSDate
             let dateString = run.date
             let dateFormatter = DateFormatter()
+            dateFormatter.timeZone = TimeZone(abbreviation: "ADT")
             dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
-            dateFormatter.timeZone = TimeZone(abbreviation: "MST")
             let newDate = dateFormatter.date(from: dateString)
             
-
-            let newDateMST = currentDateFormatter.string(from: newDate!)
-            print("New current date: \(newDateMST)") // Date is now in MST
+            print("COMPARISON #######")
+            print("run.date: \(run.date)")
+            print("newDate: \(newDate!)")
+            print("current date in UTC: \(Date())")
+            print(newDate!.compare(Date())==ComparisonResult.orderedDescending)
             
-            print("NEW DATE: \(newDateMST)")
-            print("CURRENT DATE: \(currentDateMST)")
-            print(newDate! > currentDate)
-            
-            
-            if (newDate! > currentDate) {
+            if (newDate!.compare(Date())==ComparisonResult.orderedDescending) {
                 // Appends run if it is in the future so it can be viewed in the table.
                 print("Run appended")
                 self.runs.append(run)
@@ -79,8 +68,6 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         print("started updating location")
-
-        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

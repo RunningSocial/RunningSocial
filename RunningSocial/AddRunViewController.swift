@@ -45,8 +45,8 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         dateAndTimePicker.delegate = self
         dateAndTimePicker.dataSource = self
-        datePicker.minuteInterval = 15        
-        
+        datePicker.minuteInterval = 15
+        datePicker.timeZone = TimeZone.current // Returns America/Denver (current)
         lengthPicker.delegate = self
         lengthPicker.dataSource = self
         lengthPicker.tag = 0
@@ -142,8 +142,11 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     @IBAction func timeChanged(_ sender: Any) {
         //NSDate to String
+        print(Date())
+        print(datePicker.date)
         let date = datePicker.date
         let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(abbreviation: "UTC") // Converts local time to UTC time
         dateFormatter.dateFormat = "MM-dd-yyyy hh:mm"
         dateAndTime.text = dateFormatter.string(from: date as Date)
         // This stores the date as a string in the hidden dateAndTime label

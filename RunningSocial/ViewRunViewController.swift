@@ -7,9 +7,11 @@
 //
 
 import UIKit
+import MapKit
 
-class ViewRunViewController: UIViewController {
+class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationManagerDelegate {
 
+    @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var runTitle: UILabel!
     @IBOutlet weak var runDetails: UILabel!
     @IBOutlet weak var runDistance: UILabel!
@@ -22,8 +24,6 @@ class ViewRunViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         runTitle.text = run.title
         runDetails.text = run.details
@@ -32,8 +32,17 @@ class ViewRunViewController: UIViewController {
         runDateTime.text = run.date
         latitudeLabel.text = run.latitude
         longitudeLabel.text = run.longitude
-    }
+        
+        let latitudeDouble = NumberFormatter().number(from: run.latitude)?.doubleValue
+        let longitudeDouble = NumberFormatter().number(from: run.longitude)?.doubleValue
 
-    
-    
+        // set location to run's location
+        let initialLocation = CLLocation(latitude: latitudeDouble!, longitude: longitudeDouble!)
+        let regionRadius: CLLocationDistance = 500
+        func centerMapOnLocation(location: CLLocation) {
+            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius * 2.0, regionRadius * 2.0)
+            mapView.setRegion(coordinateRegion, animated: true)
+        }
+        centerMapOnLocation(location: initialLocation)
+    }
 }

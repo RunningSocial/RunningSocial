@@ -258,6 +258,7 @@
                     <connections>
                         <outlet property="latitudeLabel" destination="hKa-Sw-gaK" id="urt-13-SUp"/>
                         <outlet property="longitudeLabel" destination="h2m-Qb-fBB" id="hKe-IV-4Qz"/>
+                        <outlet property="mapView" destination="mt0-Ux-pje" id="VBa-Bk-TXy"/>
                         <outlet property="runDateTime" destination="mXi-Td-WxA" id="SX0-TA-b7s"/>
                         <outlet property="runDetails" destination="xH7-Ut-Xk7" id="U6V-mi-RmQ"/>
                         <outlet property="runDifficulty" destination="O8n-yv-8kp" id="SRF-TD-uXK"/>

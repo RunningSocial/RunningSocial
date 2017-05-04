@@ -6,6 +6,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -21,24 +23,32 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Running-Shoes-icon" translatesAutoresizingMaskIntoConstraints="NO" id="PUY-R9-6Rh">
-                                <rect key="frame" x="67" y="145.5" width="240" height="128"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="240" id="Chq-fS-B2M"/>
-                                    <constraint firstAttribute="height" constant="128" id="ai7-0i-12J"/>
-                                </constraints>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="curtis-mac-newton-12711 (1).jpg" highlightedImage="curtis-mac-newton-12711 (1).jpg" translatesAutoresizingMaskIntoConstraints="NO" id="aBQ-Vu-U25">
+                                <rect key="frame" x="16" y="20" width="91.5" height="647"/>
                             </imageView>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" animating="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="JNd-sJ-9EZ">
-                                <rect key="frame" x="178" y="323.5" width="20" height="20"/>
-                                <color key="color" red="0.200579375" green="0.055281579490000003" blue="0.06032976508" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="1" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4g3-f8-6Ps">
+                                <rect key="frame" x="35" y="553" width="305" height="54"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="RunningSocial">
+                                        <attributes>
+                                            <color key="NSColor" red="0.99215686274509807" green="0.32941176470588235" blue="0.20000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <font key="NSFont" size="47" name="Arial-ItalicMT"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="truncatingTail" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <color key="shadowColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <size key="shadowOffset" width="1" height="1"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="JNd-sJ-9EZ" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="D2Q-Dv-AHq"/>
-                            <constraint firstItem="JNd-sJ-9EZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="GBU-1B-Dry"/>
-                            <constraint firstItem="PUY-R9-6Rh" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="bZ4-MK-ktL"/>
-                            <constraint firstItem="JNd-sJ-9EZ" firstAttribute="top" secondItem="PUY-R9-6Rh" secondAttribute="bottom" constant="50" id="ki0-gf-Z76"/>
+                            <constraint firstItem="aBQ-Vu-U25" firstAttribute="bottom" secondItem="xb3-aO-Qok" secondAttribute="top" id="8Z9-86-Sny"/>
+                            <constraint firstAttribute="bottom" secondItem="4g3-f8-6Ps" secondAttribute="bottom" constant="60" id="Kko-kM-zeO"/>
+                            <constraint firstItem="aBQ-Vu-U25" firstAttribute="top" secondItem="Llm-lL-Icb" secondAttribute="bottom" id="WkZ-NG-xkJ"/>
+                            <constraint firstItem="aBQ-Vu-U25" firstAttribute="leading" secondItem="Ze5-6b-2t3" secondAttribute="leadingMargin" id="caC-Sq-Uja"/>
+                            <constraint firstItem="4g3-f8-6Ps" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="kD6-9I-tIP"/>
+                            <constraint firstItem="aBQ-Vu-U25" firstAttribute="trailing" secondItem="Ze5-6b-2t3" secondAttribute="trailingMargin" multiplier="0.3" id="uhP-c8-wBx"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -48,6 +58,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Running-Shoes-icon" width="512" height="512"/>
+        <image name="curtis-mac-newton-12711 (1).jpg" width="4241" height="3181"/>
     </resources>
 </document>

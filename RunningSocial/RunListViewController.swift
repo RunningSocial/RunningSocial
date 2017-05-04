@@ -44,6 +44,7 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             run.distance = (snapshot.value as! NSDictionary)["distance"] as! String
             run.difficulty = (snapshot.value as! NSDictionary)["difficulty"] as! String
             
+            
             // String to NSDate
             let dateString = run.date
             let dateFormatter = DateFormatter()
@@ -78,6 +79,7 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         locationManager.requestWhenInUseAuthorization()
         locationManager.startUpdatingLocation()
         print("started updating location")
+
         
     }
     
@@ -116,17 +118,17 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
         let region = MKCoordinateRegionMake(location, span)
         self.upcomingMapView.setRegion(region, animated: true)
         
-        // add a pin to the centerpoint of the map
+        // center the map and drop a pin on the user's location
         let annotation = MKPointAnnotation()
         annotation.title = "Your Location"
-        //annotation.subtitle = "Starting point"
         annotation.coordinate = location
         upcomingMapView.addAnnotation(annotation)
         
         // problems: continually updating, provides too many data points
-        
-        
-        
+        locationManager.stopUpdatingLocation()
+        print("stopped updating location")
+        print("Latitude is \(userLat) and Longitude is \(userLong)")
+
     }
     
     // LOGOUT FUNCTION

@@ -11,7 +11,7 @@ import MapKit
 import Firebase
 import CoreLocation
 
-class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, MKMapViewDelegate, UITextFieldDelegate {
+class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate,UITextFieldDelegate, MKMapViewDelegate, CLLocationManagerDelegate {
 
     var pace = [String]()
     var length = [String]()
@@ -30,6 +30,9 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     @IBOutlet weak var difficultyTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var addRunButton: UIButton!
+    
+    var locationManager = CLLocationManager()
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,8 +58,9 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         difficultyTextField.inputView = difficultyPicker
         
         // set initial location to Denver
+        // needs to use same user location as Run List
         let initialLocation = CLLocation(latitude: 39.7392, longitude: -104.9903)
-        let regionRadius: CLLocationDistance = 50000
+        let regionRadius: CLLocationDistance = 20000
         func centerMapOnLocation(location: CLLocation) {
             let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
             mapView.setRegion(coordinateRegion, animated: true)
@@ -65,7 +69,7 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         
         // UI LongPress Recognizer to drop a pin
         let uilpgr = UILongPressGestureRecognizer(target: self, action: #selector(AddRunViewController.longpress(gestureRecognizer:)))
-        uilpgr.minimumPressDuration = 1
+        uilpgr.minimumPressDuration = 1.5
         mapView.addGestureRecognizer(uilpgr)
         
     }
@@ -81,7 +85,16 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         // currently allows more than one long press
         // and generates more than one lat and long
         print(annotation.coordinate)
-        
+        locationManager.stopUpdatingLocation()
+        print("Latitude is \(annotation.coordinate.latitude) and Longitude is \(annotation.coordinate.longitude)")
+        // convert double to string
+        let stringifiedLatitude:String = String(format:"%.4f", annotation.coordinate.latitude)
+        let stringifiedLongitude:String = String(format:"%.4f", annotation.coordinate.longitude)
+        print("As strings, Latitude = \(stringifiedLatitude) and Longitude = \(stringifiedLongitude)")
+        // convert back to a Float
+        let floatedLatitude = Float(stringifiedLatitude)
+        let floatedLongitude = Float(stringifiedLongitude)
+        print("Back to a Float: Lat = \(String(describing: floatedLatitude)) and Long = \(String(describing: floatedLongitude))")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

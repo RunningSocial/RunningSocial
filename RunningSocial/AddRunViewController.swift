@@ -92,9 +92,9 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         let stringifiedLongitude:String = String(format:"%.4f", annotation.coordinate.longitude)
         print("As strings, Latitude = \(stringifiedLatitude) and Longitude = \(stringifiedLongitude)")
         // convert back to a Float
-        let floatedLatitude = Float(stringifiedLatitude)
-        let floatedLongitude = Float(stringifiedLongitude)
-        print("Back to a Float: Lat = \(String(describing: floatedLatitude)) and Long = \(String(describing: floatedLongitude))")
+        let doubleLatitude = Double(stringifiedLatitude)!
+        let doubleLongitude = Double(stringifiedLongitude)!
+        print("Back to a Double: Lat = \(String(describing: doubleLatitude)) and Long = \(String(describing: doubleLongitude))")
     }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {

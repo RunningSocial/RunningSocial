@@ -53,25 +53,25 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             let newDate = dateFormatter.date(from: dateString)
             
 
-            let newDateMST = currentDateFormatter.string(from: newDate!)
-            print("New current date: \(newDateMST)") // Date is now in MST
+//            let newDateMST = currentDateFormatter.string(from: newDate!)
+//            print("New current date: \(newDateMST)") // Date is now in MST
             
-            print("NEW DATE: \(newDateMST)")
-            print("CURRENT DATE: \(currentDateMST)")
-            print(newDate! > currentDate)
+//            print("NEW DATE: \(newDateMST)")
+//            print("CURRENT DATE: \(currentDateMST)")
+//            print(newDate! > currentDate)
             
             
-            if (newDate! > currentDate) {
+//            if (newDate! > currentDate) {
                 // Appends run if it is in the future so it can be viewed in the table.
                 print("Run appended")
                 self.runs.append(run)
                 self.tableView.reloadData()
-            } else {
-                print("Run date was in the past and will be deleted from the DB")
-                // This function removes the run from the db
-                snapshot.ref.removeValue()
-                self.tableView.reloadData()
-            }
+//            } else {
+//                print("Run date was in the past and will be deleted from the DB")
+//                // This function removes the run from the db
+//                snapshot.ref.removeValue()
+//                self.tableView.reloadData()
+//            }
         })
         
         locationManager.delegate = self

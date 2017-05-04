@@ -35,6 +35,9 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             run.details = (snapshot.value as! NSDictionary)["details"] as! String
             run.distance = (snapshot.value as! NSDictionary)["distance"] as! String
             run.difficulty = (snapshot.value as! NSDictionary)["difficulty"] as! String
+            run.latitude = (snapshot.value as! NSDictionary)["latitude"] as! String
+            run.longitude = (snapshot.value as! NSDictionary)["longitude"] as! String
+
             
             
             // String to NSDate

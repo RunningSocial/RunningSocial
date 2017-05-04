@@ -181,9 +181,6 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             errorLabel.text = "*Please pick a difficulty*"
             errorLabel.isHidden = false
         } else {
-            print("Checking data second time")
-            print(longitudeLabel.text)
-            print(latitudeLabel.text)
             // User has completed all fields so the run is added to the db.
             errorLabel.isHidden = true
             let newRun = ["owner": FIRAuth.auth()?.currentUser!.email!, "title": self.titleTextField.text, "details": self.detailsTextField.text, "distance": self.distanceTextField.text, "difficulty": self.difficultyTextField.text, "date": self.dateAndTime.text, "latitude": latitudeLabel.text, "longitude": longitudeLabel.text]

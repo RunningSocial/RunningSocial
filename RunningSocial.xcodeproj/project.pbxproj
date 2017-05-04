@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0F21CC281EBBC62300A11965 /* curtis-mac-newton-12711 (1).jpg in Resources */ = {isa = PBXBuildFile; fileRef = 0F21CC271EBBC62300A11965 /* curtis-mac-newton-12711 (1).jpg */; };
-		0F84EFBE1EBBD74A000E8244 /* ViewRunViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F84EFBD1EBBD74A000E8244 /* ViewRunViewController.swift */; };
 		201F9D5552D4912C204A33DE /* Pods_RunningSocial.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */; };
 		2B83FEE81EB911CE002C255E /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2B83FEE71EB911CE002C255E /* CoreLocation.framework */; };
 		2BCBA5361EBB9D4700D4F4D7 /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BCBA5351EBB9D4700D4F4D7 /* Location.swift */; };
@@ -29,12 +27,11 @@
 
 /* Begin PBXFileReference section */
 		09F672D170F23C2112E2127D /* Pods-RunningSocial.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningSocial.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RunningSocial/Pods-RunningSocial.debug.xcconfig"; sourceTree = "<group>"; };
-		0F21CC271EBBC62300A11965 /* curtis-mac-newton-12711 (1).jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "curtis-mac-newton-12711 (1).jpg"; sourceTree = "<group>"; };
-		0F84EFBD1EBBD74A000E8244 /* ViewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRunViewController.swift; sourceTree = "<group>"; };
 		2B83FEE71EB911CE002C255E /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		2BCBA5351EBB9D4700D4F4D7 /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Location.swift; sourceTree = "<group>"; };
 		7DDEE55E5F5D424DF4981FC9 /* Pods_RunningSocial.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RunningSocial.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		874F5E69C4BF0F288FB53E80 /* Pods-RunningSocial.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RunningSocial.release.xcconfig"; path = "Pods/Target Support Files/Pods-RunningSocial/Pods-RunningSocial.release.xcconfig"; sourceTree = "<group>"; };
+		F60DFF4E1EB9249F006206B4 /* ViewRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewRunViewController.swift; sourceTree = "<group>"; };
 		F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RunListViewController.swift; sourceTree = "<group>"; };
 		F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddRunViewController.swift; sourceTree = "<group>"; };
 		F6A4F7251EB7D22F0081EFC7 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
@@ -70,8 +67,8 @@
 			children = (
 				F6A4F7231EB7CFF00081EFC7 /* AddRunViewController.swift */,
 				F6A4F7211EB7CC4F0081EFC7 /* RunListViewController.swift */,
-				0F84EFBD1EBBD74A000E8244 /* ViewRunViewController.swift */,
 				F6F72EC61EB7958F002EBA70 /* SignInViewController.swift */,
+				F60DFF4E1EB9249F006206B4 /* ViewRunViewController.swift */,
 			);
 			name = ViewControllers;
 			sourceTree = "<group>";
@@ -131,7 +128,6 @@
 				F6F72EC41EB7958F002EBA70 /* AppDelegate.swift */,
 				F6F72EC81EB7958F002EBA70 /* Main.storyboard */,
 				F6F72ECE1EB7958F002EBA70 /* Assets.xcassets */,
-				0F21CC271EBBC62300A11965 /* curtis-mac-newton-12711 (1).jpg */,
 				F6F72ED01EB7958F002EBA70 /* LaunchScreen.storyboard */,
 				F6F72ED31EB7958F002EBA70 /* Info.plist */,
 				F6F72ECB1EB7958F002EBA70 /* RunningSocial.xcdatamodeld */,
@@ -215,7 +211,6 @@
 				F6F72ECF1EB7958F002EBA70 /* Assets.xcassets in Resources */,
 				F6F72ECA1EB7958F002EBA70 /* Main.storyboard in Resources */,
 				F6F72EDA1EB7A202002EBA70 /* GoogleService-Info.plist in Resources */,
-				0F21CC281EBBC62300A11965 /* curtis-mac-newton-12711 (1).jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,9 +275,9 @@
 				F6A4F72B1EB7DE550081EFC7 /* Run.swift in Sources */,
 				F6A4F7291EB7DE470081EFC7 /* User.swift in Sources */,
 				F6A4F7221EB7CC4F0081EFC7 /* RunListViewController.swift in Sources */,
+				F60DFF4F1EB9249F006206B4 /* ViewRunViewController.swift in Sources */,
 				F6F72EC51EB7958F002EBA70 /* AppDelegate.swift in Sources */,
 				F6A4F7241EB7CFF00081EFC7 /* AddRunViewController.swift in Sources */,
-
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

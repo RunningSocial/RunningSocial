@@ -15,6 +15,8 @@ class ViewRunViewController: UIViewController {
     @IBOutlet weak var runDistance: UILabel!
     @IBOutlet weak var runDifficulty: UILabel!
     @IBOutlet weak var runDateTime: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
     
     var run = Run()
     
@@ -28,6 +30,8 @@ class ViewRunViewController: UIViewController {
         runDistance.text = run.distance
         runDifficulty.text = run.difficulty
         runDateTime.text = run.date
+        latitudeLabel.text = run.latitude
+        longitudeLabel.text = run.longitude
     }
 
     

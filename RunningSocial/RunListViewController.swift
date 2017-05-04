@@ -17,6 +17,8 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
     @IBOutlet weak var tableView: UITableView!
     
     var runs : [Run] = []
+    var allLocations = [Location]()
+    
     var locationManager = CLLocationManager()
     
     override func viewDidLoad() {
@@ -37,7 +39,17 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
             run.difficulty = (snapshot.value as! NSDictionary)["difficulty"] as! String
             run.latitude = (snapshot.value as! NSDictionary)["latitude"] as! String
             run.longitude = (snapshot.value as! NSDictionary)["longitude"] as! String
-
+            
+            print("!!!!!!!!!!!!!!!!!!!!!")
+            print(run.longitude, run.latitude)
+            
+            let thisRunDoubleLat: CLLocationDegrees = (NumberFormatter().number(from: run.latitude)?.doubleValue)!
+            let thisRunDoubleLong: CLLocationDegrees = (NumberFormatter().number(from: run.longitude)?.doubleValue)!
+            let thisRunLocation = CLLocationCoordinate2DMake(thisRunDoubleLat, thisRunDoubleLong)
+            let annotation = MKPointAnnotation()
+            annotation.coordinate = thisRunLocation
+            annotation.title = run.title
+            self.upcomingMapView.addAnnotation(annotation)
             
             
             // String to NSDate

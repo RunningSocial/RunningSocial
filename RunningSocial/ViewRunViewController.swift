@@ -24,6 +24,8 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        latitudeLabel.isHidden = true
+        longitudeLabel.isHidden = true
         
         runTitle.text = run.title
         runDetails.text = run.details

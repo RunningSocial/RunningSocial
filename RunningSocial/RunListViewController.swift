@@ -56,11 +56,11 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
                 self.runs.append(run)
                 self.tableView.reloadData()
             } else {
-                print("Run date was in the past and will be deleted from the DB")
-                // This function removes the run from the db
-                snapshot.ref.removeValue()
-                self.tableView.reloadData()
-            }
+               print("Run date was in the past and will be deleted from the DB")
+               // This function removes the run from the db
+               snapshot.ref.removeValue()
+               self.tableView.reloadData()
+           }
         })
         
         locationManager.delegate = self

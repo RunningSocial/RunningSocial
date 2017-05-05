@@ -44,25 +44,6 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         singleRunAnnotation.coordinate = singleRunLocation
         singleRunAnnotation.title = run.title
         self.mapView.addAnnotation(singleRunAnnotation)
-        
-        //TEST TEST
-        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitudeDouble, longitudeDouble)
-        
-        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
-            if error != nil {
-                print("There is no address for this location")
-            } else {
-                if let place = placemark?[0]
-                {
-                    if let checker = place.subThoroughfare {
-                        print("//////////////////")
-                        print("\(place.subThoroughfare!) \n \(place.Thoroughfare!)")
-                    }
-                }
-            }
-        }
-        
-        //^^TEST TEST
 
         // set location to run's location
         let initialLocation = CLLocation(latitude: latitudeDouble, longitude: longitudeDouble)

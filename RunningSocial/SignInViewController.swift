@@ -20,7 +20,7 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        roundedCornerButton.layer.cornerRadius = 4
+        roundedCornerButton.layer.cornerRadius = 20
     }
     
     @IBAction func loginTapped(_ sender: Any) {

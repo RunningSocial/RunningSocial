@@ -44,7 +44,25 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         singleRunAnnotation.coordinate = singleRunLocation
         singleRunAnnotation.title = run.title
         self.mapView.addAnnotation(singleRunAnnotation)
-
+        
+        // starting reverse geocode
+        let location = CLLocation(latitude: latitudeDouble, longitude: longitudeDouble)
+        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+            if error != nil {
+                print("There is no address for this location")
+            } else {
+                if let place = placemark?[0]
+                {
+                    if let checker = place.subThoroughfare {
+                        singleRunAnnotation.subtitle = "\(place.subThoroughfare!) \(place.thoroughfare!) \n \(place.locality!)"
+                        print("//////////////////")
+                        print("\(place.subThoroughfare!) \(place.thoroughfare!)")
+                        print("//////////////////")
+                    }
+                }
+            }
+        }
+        
         // set location to run's location
         let initialLocation = CLLocation(latitude: latitudeDouble, longitude: longitudeDouble)
         let regionRadius: CLLocationDistance = 500
@@ -55,19 +73,16 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         centerMapOnLocation(location: initialLocation)
         
         // Convert UTC time to current timezone
-        print(run.date)
         let dateString = run.date
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC+6:00")
         dateFormatter.dateFormat = "MM-dd-yyyy HH:mm"
         let newDate = dateFormatter.date(from: dateString)
-        print(newDate!)
         // Convert current time to a String
-
+        
         let dateFormatter2 = DateFormatter()
         dateFormatter2.timeZone = TimeZone(abbreviation: "UTC")
-//        dateFormatter2.dateFormat = "MM-dd-yyyy h:mm a" // works!
-        dateFormatter2.dateFormat = "E MMM d, h:mm a" // works!
+        dateFormatter2.dateFormat = "E MMM d, h:mm a"
         let dateAsString = dateFormatter2.string(from: newDate!)
         print("dateAsString: \(dateAsString)")
         runDateTime.text = dateAsString

@@ -88,6 +88,7 @@ class RunListViewController: UIViewController, UITableViewDelegate, UITableViewD
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let run = runs[indexPath.row]
         performSegue(withIdentifier: "viewrunsegue", sender: run)
+        tableView.deselectRow(at: indexPath, animated: true) // prevents row from staying hilighted
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

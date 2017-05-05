@@ -65,16 +65,6 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
         difficultyPicker.tag = 1
         difficultyTextField.inputView = difficultyPicker
         
-        // set initial location to Denver
-        // needs to use same user location as Run List
-//        let initialLocation = CLLocation(latitude: 39.7392, longitude: -104.9903)
-//        let regionRadius: CLLocationDistance = 20000
-//        func centerMapOnLocation(location: CLLocation) {
-//            let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
-//            mapView.setRegion(coordinateRegion, animated: true)
-//        }
-//        centerMapOnLocation(location: initialLocation)
-        
         // start updating user location
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -178,8 +168,6 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     
     @IBAction func timeChanged(_ sender: Any) {
         //NSDate to String
-        print(Date())
-        print(datePicker.date)
         let date = datePicker.date
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC") // Converts local time to UTC time
@@ -216,7 +204,5 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
             self.navigationController!.popToRootViewController(animated: true)
         }
     }
-    
-
 }
 

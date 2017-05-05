@@ -41,10 +41,10 @@ class AddRunViewController: UIViewController, UIPickerViewDataSource, UIPickerVi
     override func viewDidLoad() {
         super.viewDidLoad()
         print("INITIAL DATE: \(Date())")
-        addRunButton.layer.cornerRadius = 4
+        addRunButton.layer.cornerRadius = 20
         
         pace = ["Beginner", "Intermediate", "Advanced", "Expert"]
-        length = ["1 mile","2 miles","3 miles","5K","4 miles","5 miles","6 miles","10K","7 miles","8 miles","9 miles","10 miles","11 miles","12 miles","13 miles","Half Marathon", "14+ miles"]
+        length = ["1 mile","2 miles","3 miles","5K","4 miles","5 miles","6 miles","10K","7 miles","8 miles","9 miles","10 miles","11 miles","12 miles","13 miles","Half Marathon"]
         
         dateAndTime.isHidden = true
         errorLabel.isHidden = true

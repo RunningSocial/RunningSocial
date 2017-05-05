@@ -14,6 +14,7 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
     
     @IBOutlet weak var mapView: MKMapView!
     @IBOutlet weak var runTitle: UILabel!
+    @IBOutlet weak var runOwner: UILabel!
     @IBOutlet weak var runDetails: UILabel!
     @IBOutlet weak var runDistance: UILabel!
     @IBOutlet weak var runDifficulty: UILabel!
@@ -27,11 +28,12 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         super.viewDidLoad()
         latitudeLabel.isHidden = true
         longitudeLabel.isHidden = true
+        
         runTitle.text = run.title
-        runDetails.text = "Details: \(run.details)"
-        runDistance.text = "Estimated distance: \(run.distance)"
-        runDifficulty.text = "Difficulty: \(run.difficulty)"
-//        runDateTime.text = "Date & Time: \(run.date)"
+        runOwner.text = run.owner
+        runDetails.text = run.details
+        runDistance.text = run.distance
+        runDifficulty.text = run.difficulty
         latitudeLabel.text = run.latitude
         longitudeLabel.text = run.longitude
         
@@ -42,6 +44,25 @@ class ViewRunViewController: UIViewController, MKMapViewDelegate, CLLocationMana
         singleRunAnnotation.coordinate = singleRunLocation
         singleRunAnnotation.title = run.title
         self.mapView.addAnnotation(singleRunAnnotation)
+        
+        //TEST TEST
+        let location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitudeDouble, longitudeDouble)
+        
+        CLGeocoder().reverseGeocodeLocation(location) { (placemark, error) in
+            if error != nil {
+                print("There is no address for this location")
+            } else {
+                if let place = placemark?[0]
+                {
+                    if let checker = place.subThoroughfare {
+                        print("//////////////////")
+                        print("\(place.subThoroughfare!) \n \(place.Thoroughfare!)")
+                    }
+                }
+            }
+        }
+        
+        //^^TEST TEST
 
         // set location to run's location
         let initialLocation = CLLocation(latitude: latitudeDouble, longitude: longitudeDouble)

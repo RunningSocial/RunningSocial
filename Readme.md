@@ -1,5 +1,7 @@
 # Galvanize Group Project: Running Social, an iOS App
 
+![iPhone App](https://cloud.githubusercontent.com/assets/20194482/26029539/5521322e-37f4-11e7-808f-a1b227c83b95.jpg)
+
 ## Group Members
 * Lane
 * Ryan

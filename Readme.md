@@ -1,11 +1,4 @@
-# Galvanize Group Project Proposal
-
-* 1 member from your team will need to fork this repo and update this README file with your proposal.
-* Make sure to preview your proposal in a markdown preview and [use valid markdown syntax](https://help.github.com/articles/basic-writing-and-formatting-syntax/)
-  * Unformatted/unreadable proposals will be rejected
-
-## Team Name
-  Running Social
+# Galvanize Group Project: Running Social, an iOS App
 
 ## Group Members
 * Lane
@@ -16,10 +9,11 @@
   Running Social
 
 ## Project Description
-  Mobile app will allow users to store a location on a map with details regarding a group run that anyone is free to join. Users can view a map that has all upcoming runs on the map. Events will clear after start time has passed.
+  Running Social is a mobile app that will allow registered users to create and publish planned runs, storing and displaying locations and start times so that others can join in on the event. Run organizers can publish their events for all to see, and other users can use run lists and map info to decide which runs to join.
+
 
 ## Who uses it?
-  Runners who want to run with other runners
+  Runners who want to run with other runners, runners who are seeking group runs or training partners
 
 ## What outputs do they need?
 Marker on map with information:
